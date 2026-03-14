@@ -1,0 +1,70 @@
+/* primary color #A651FB */
+/* secondary color #7B899D */
+/* text color #fff */
+/* text subtitle color #A651FB 0% #3C83F6 50% #1FD5F9 100% */
+/* close color #EF4444 */
+/* minimize color #EAB308 */
+/* maximize color #22CC55 */
+/* panel color #101317 */
+/* background color #05080F */
+
+:root {
+  --glass-bg: rgba(255, 255, 255, 0.05);
+  --glass-border: rgba(255, 255, 255, 0.1);
+  --glass-blur: blur(16px);
+  --text-primary: #ffffff;
+  --text-secondary: rgba(255, 255, 255, 0.7);
+  --accent: #3b82f6; /* Linux-like blue */
+  --desktop-bg: #0f172a; /* Deep dark blue */
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family:
+    "Inter",
+    -apple-system,
+    BlinkMacSystemFont,
+    "Segoe UI",
+    Roboto,
+    sans-serif;
+}
+
+body {
+  background-color: var(--desktop-bg);
+  color: var(--text-primary);
+  overflow: hidden; /* Prevent body scroll, desktop will handle everything */
+  height: 100vh;
+  width: 100vw;
+}
+
+#root {
+  height: 100%;
+}
+
+.desktop {
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(circle at top left, #1e293b 0%, #0f172a 100%);
+  position: relative;
+  overflow: hidden;
+}
+
+.liquid-glass {
+  background: var(--glass-bg);
+  backdrop-filter: var(--glass-blur);
+  -webkit-backdrop-filter: var(--glass-blur);
+  border: 1px solid var(--glass-border);
+  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
