@@ -7,6 +7,9 @@
 /* maximize color #22CC55 */
 /* panel color #101317 */
 /* background color #05080F */
+/* text font Inter */
+/* primary font JetBrains Mono */
+/* title font Space Grotesk */
 
 :root {
   --glass-bg: rgba(255, 255, 255, 0.05);
