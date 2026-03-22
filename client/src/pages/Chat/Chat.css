@@ -27,7 +27,6 @@
   padding: 0 12px;
   user-select: none;
   background: var(--background-secondary);
-  border: 1px solid rgba(166, 81, 251, 0.1);
   border-radius: 25px;
 }
 
@@ -47,7 +46,6 @@
   flex-direction: column;
   background-color: var(--background-secondary);
   border-radius: 12px;
-  border: 1px solid rgba(166, 81, 251, 0.1);
   overflow: hidden;
 }
 

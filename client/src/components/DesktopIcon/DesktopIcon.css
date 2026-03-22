@@ -45,7 +45,6 @@
   height: 56px;
   border-radius: 1rem;
   background: var(--icon-bg);
-  border: 1px solid var(--icon-border);
   backdrop-filter: blur(8px);
   -webkit-backdrop-filter: blur(8px);
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
@@ -56,7 +55,6 @@
 
 .desktop-icon:hover .desktop-icon__container {
   background: var(--icon-hover-bg);
-  border-color: rgba(166, 81, 251, 0.4);
   transform: scale(1.08);
   box-shadow:
     0 6px 24px rgba(166, 81, 251, 0.2),
