@@ -1,0 +1,58 @@
+.topbar {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 28px;
+  background-color: #070b15;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  padding: 0 12px;
+  z-index: 50;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+.topbar__left {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.topbar__user {
+  font-family: var(--font-text);
+  font-size: 11px;
+  font-weight: 600;
+  color: var(--text-primary);
+}
+
+.topbar__sep {
+  font-size: 11px;
+  color: var(--secondary);
+}
+
+.topbar__active {
+  font-family: var(--font-text);
+  font-size: 11px;
+  font-weight: 400;
+  color: var(--text-secondary);
+}
+
+.topbar__center {
+  display: flex;
+  justify-content: center;
+}
+
+.topbar__clock {
+  font-family: var(--font-text);
+  font-size: 11px;
+  font-weight: 500;
+  color: var(--text-primary);
+  letter-spacing: 0.03em;
+}
+
+.topbar__right {
+  display: flex;
+  justify-content: flex-end;
+}

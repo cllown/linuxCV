@@ -1,7 +1,5 @@
 import React from "react";
 import { motion } from "framer-motion";
-
-import { X, Minus, Square } from "lucide-react";
 import { useOS } from "./OSContext";
 
 interface WindowProps {
@@ -31,10 +29,11 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
       initial={{ scale: 0.9, opacity: 0 }}
       animate={{ scale: 1, opacity: 1 }}
       exit={{ scale: 0.9, opacity: 0 }}
+      transition={{ type: "spring", stiffness: 300, damping: 25 }}
       style={{
         zIndex: windowState.zIndex,
         position: "absolute",
-        width: 400,
+        width: 420,
         minHeight: 300,
         display: "flex",
         flexDirection: "column",
@@ -42,35 +41,35 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
       className="liquid-glass rounded-lg overflow-hidden"
     >
       {/* Window Header */}
-      <div className="flex items-center justify-between p-3 bg-white/10 cursor-move select-none">
-        <span className="text-sm font-medium">{title}</span>
-        <div className="flex gap-2">
-          <button
-            onClick={(e) => {
-              e.stopPropagation();
-              minimizeWindow(id);
-            }}
-            className="p-1 hover:bg-white/10 rounded transition-colors"
-          >
-            <Minus size={14} />
-          </button>
-          <button className="p-1 hover:bg-white/10 rounded transition-colors">
-            <Square size={12} />
-          </button>
+      <div className="window-header">
+        <div className="window-controls">
           <button
             onClick={(e) => {
               e.stopPropagation();
               closeWindow(id);
             }}
-            className="p-1 hover:bg-red-500/50 rounded transition-colors"
-          >
-            <X size={14} />
-          </button>
+            className="window-control window-control--close"
+            title="Close"
+          />
+          <button
+            onClick={(e) => {
+              e.stopPropagation();
+              minimizeWindow(id);
+            }}
+            className="window-control window-control--minimize"
+            title="Minimize"
+          />
+          <button
+            className="window-control window-control--maximize"
+            title="Maximize"
+          />
         </div>
+        <span className="window-header__title">{title}</span>
+        <div style={{ width: 48 }} /> {/* Spacer for centering */}
       </div>
 
       {/* Window Content */}
-      <div className="flex-1 p-4 overflow-auto custom-scrollbar">
+      <div className="window-content custom-scrollbar">
         {children}
       </div>
     </motion.div>

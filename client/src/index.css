@@ -1,3 +1,4 @@
+/* ── Color Palette ──────────────────────────────── */
 /* primary color #A651FB */
 /* secondary color #7B899D */
 /* text color #fff */
@@ -11,33 +12,70 @@
 /* primary font JetBrains Mono */
 /* title font Space Grotesk */
 
+/* ── Google Fonts ──────────────────────────────── */
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap");
+
 :root {
-  --glass-bg: rgba(255, 255, 255, 0.05);
-  --glass-border: rgba(255, 255, 255, 0.1);
-  --glass-blur: blur(16px);
+  /* ── Core palette ── */
+  --primary: #a651fb;
+  --secondary: #7b899d;
+  --background: #05080f;
+  --panel: #101317;
+  --surface: rgba(16, 19, 23, 0.85);
+
+  /* ── Gradient ── */
+  --gradient-start: #a651fb;
+  --gradient-mid: #3c83f6;
+  --gradient-end: #1fd5f9;
+  --gradient-text: linear-gradient(
+    90deg,
+    var(--gradient-start) 0%,
+    var(--gradient-mid) 50%,
+    var(--gradient-end) 100%
+  );
+
+  /* ── Glass ── */
+  --glass-bg: rgba(166, 81, 251, 0.06);
+  --glass-border: rgba(166, 81, 251, 0.15);
+  --glass-blur: blur(20px);
+
+  /* ── Text ── */
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.7);
-  --accent: #3b82f6; /* Linux-like blue */
-  --desktop-bg: #0f172a; /* Deep dark blue */
+  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-muted: var(--secondary);
+
+  /* ── Window controls ── */
+  --close: #ef4444;
+  --minimize: #eab308;
+  --maximize: #22cc55;
+
+  /* ── Icon container ── */
+  --icon-bg: rgba(166, 81, 251, 0.12);
+  --icon-border: rgba(166, 81, 251, 0.25);
+  --icon-hover-bg: rgba(166, 81, 251, 0.22);
+
+  /* ── Fonts ── */
+  --font-text:
+    "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-code: "JetBrains Mono", "Fira Code", monospace;
+  --font-title: "Space Grotesk", "Inter", sans-serif;
+
+  /* ── Accent (alias for primary) ── */
+  --accent: var(--primary);
+  --desktop-bg: var(--background);
 }
 
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family:
-    "Inter",
-    -apple-system,
-    BlinkMacSystemFont,
-    "Segoe UI",
-    Roboto,
-    sans-serif;
+  font-family: var(--font-text);
 }
 
 body {
   background-color: var(--desktop-bg);
   color: var(--text-primary);
-  overflow: hidden; /* Prevent body scroll, desktop will handle everything */
+  overflow: hidden;
   height: 100vh;
   width: 100vw;
 }
@@ -49,7 +87,23 @@ body {
 .desktop {
   width: 100%;
   height: 100%;
-  background: radial-gradient(circle at top left, #1e293b 0%, #0f172a 100%);
+  background:
+    radial-gradient(
+      ellipse at 20% 50%,
+      rgba(166, 81, 251, 0.08) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      ellipse at 80% 20%,
+      rgba(60, 131, 246, 0.05) 0%,
+      transparent 40%
+    ),
+    radial-gradient(
+      ellipse at 60% 80%,
+      rgba(31, 213, 249, 0.04) 0%,
+      transparent 40%
+    ),
+    linear-gradient(180deg, #0a0e18 0%, var(--background) 100%);
   position: relative;
   overflow: hidden;
 }
@@ -59,15 +113,35 @@ body {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow: 0 8px 32px 0 rgba(0, 0, 0, 0.3);
+  box-shadow:
+    0 8px 32px 0 rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.05);
 }
 
-/* Animations */
+/* ── Gradient text utility ── */
+.gradient-text {
+  background: var(--gradient-text);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ── Animations ── */
 @keyframes fadeIn {
   from {
     opacity: 0;
   }
   to {
     opacity: 1;
+  }
+}
+
+@keyframes subtleGlow {
+  0%,
+  100% {
+    box-shadow: 0 0 15px rgba(166, 81, 251, 0.15);
+  }
+  50% {
+    box-shadow: 0 0 25px rgba(166, 81, 251, 0.25);
   }
 }
