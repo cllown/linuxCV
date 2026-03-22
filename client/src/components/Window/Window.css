@@ -1,0 +1,63 @@
+/* ── Window styles ── */
+.window-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0.75rem 1rem;
+  background: rgba(255, 255, 255, 0.05);
+  cursor: move;
+  user-select: none;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+.window-header__title {
+  font-family: var(--font-title);
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--text-primary);
+  letter-spacing: 0.02em;
+}
+
+.window-controls {
+  display: flex;
+  gap: 0.5rem;
+  align-items: center;
+}
+
+.window-control {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  transition: all 0.15s ease;
+  padding: 0;
+  position: relative;
+}
+
+.window-control:hover {
+  transform: scale(1.2);
+  filter: brightness(1.2);
+}
+
+.window-control--close {
+  background-color: var(--close);
+}
+
+.window-control--minimize {
+  background-color: var(--minimize);
+}
+
+.window-control--maximize {
+  background-color: var(--maximize);
+}
+
+.window-content {
+  flex: 1 1 0%;
+  padding: 1.25rem;
+  overflow: auto;
+  font-family: var(--font-text);
+  font-size: 0.875rem;
+  line-height: 1.6;
+  color: var(--text-secondary);
+}

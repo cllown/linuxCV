@@ -1,6 +1,7 @@
 import React from "react";
 import { motion } from "framer-motion";
-import { useOS } from "./OSContext";
+import { useOS } from "../../context/OSContext";
+import "./Window.css";
 
 interface WindowProps {
   id: string;
@@ -15,10 +16,10 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
   if (!windowState || !windowState.isOpen || windowState.isMinimized)
     return null;
 
-    const initialX = Math.max(0, (window.innerWidth - 420) / 2);
-    const initialY = Math.max(28, (window.innerHeight - 300) / 2);
+  const initialX = Math.max(0, (window.innerWidth - 420) / 2);
+  const initialY = Math.max(28, (window.innerHeight - 300) / 2);
 
-    return (
+  return (
     <motion.div
       drag
       dragMomentum={false}
@@ -36,8 +37,8 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
       style={{
         zIndex: windowState.zIndex,
         position: "absolute",
-        left: Math.max(0, (window.innerWidth - 420) / 2),
-        top: Math.max(28, (window.innerHeight - 300) / 2),
+        left: initialX,
+        top: initialY,
         width: 420,
         minHeight: 300,
         display: "flex",

@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import type { ReactNode } from "react";
 
 export interface WindowState {
   id: string;
@@ -17,10 +17,9 @@ export interface OSContextType {
   focusWindow: (id: string) => void;
 }
 
-export const OSContext = createContext<OSContextType | undefined>(undefined);
-
-export const useOS = () => {
-  const context = useContext(OSContext);
-  if (!context) throw new Error("useOS must be used within OSProvider");
-  return context;
-};
+export interface AppConfig {
+  id: string;
+  title: string;
+  icon: string;
+  content: ReactNode;
+}

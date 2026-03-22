@@ -1,31 +1,10 @@
-import { OSProvider } from "./OSProvider";
-import { useOS } from "./OSContext";
-import { appConfigs } from "./appConfig";
+import { OSProvider } from "./context/OSProvider";
+import { appConfigs } from "./config/appConfig";
 
-import TopBar from "./TopBar";
-import Window from "./Window";
+import TopBar from "./components/TopBar/TopBar";
+import Window from "./components/Window/Window";
+import DesktopIcon from "./components/DesktopIcon/DesktopIcon";
 import "./App.css";
-
-const DesktopIcon = ({
-  id,
-  title,
-  icon,
-}: {
-  id: string;
-  title: string;
-  icon: string;
-}) => {
-  const { openWindow } = useOS();
-
-  return (
-    <div onClick={() => openWindow(id, title)} className="desktop-icon">
-      <div className="desktop-icon__container">
-        <img src={icon} alt={title} className="desktop-icon__img" />
-      </div>
-      <span className="desktop-icon__label">{title}</span>
-    </div>
-  );
-};
 
 const Desktop = () => {
   return (

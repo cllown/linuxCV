@@ -1,5 +1,6 @@
 import React, { useState, useCallback } from "react";
-import { OSContext, type WindowState } from "./OSContext";
+import { OSContext } from "./OSContext";
+import type { WindowState } from "../types";
 
 export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
