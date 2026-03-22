@@ -4,7 +4,7 @@
   left: 0;
   right: 0;
   height: 28px;
-  background-color: #070b15;
+  background-color: var(--background-secondary);
   display: grid;
   grid-template-columns: 1fr auto 1fr;
   align-items: center;

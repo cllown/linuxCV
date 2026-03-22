@@ -15,6 +15,7 @@
 /* ── Label ── */
 .chat-panel__label {
   height: 36px;
+  width: fit-content;
   display: flex;
   align-items: center;
   gap: 8px;
@@ -23,16 +24,19 @@
   font-weight: 500;
   color: var(--text-secondary);
   letter-spacing: 0.03em;
-  padding: 0 4px;
+  padding: 0 12px;
   user-select: none;
+  background: var(--background-secondary);
+  border: 1px solid rgba(166, 81, 251, 0.1);
+  border-radius: 25px;
 }
 
 .chat-panel__dot {
   width: 7px;
   height: 7px;
   border-radius: 50%;
-  background: #22c55e;
-  box-shadow: 0 0 6px rgba(34, 197, 94, 0.5);
+  background: #4a9ecb;
+  box-shadow: 0 0 6px rgba(74, 158, 203, 0.5);
   flex-shrink: 0;
 }
 
@@ -41,7 +45,7 @@
   flex: 1;
   display: flex;
   flex-direction: column;
-  background-color: #090E19;
+  background-color: var(--background-secondary);
   border-radius: 12px;
   border: 1px solid rgba(166, 81, 251, 0.1);
   overflow: hidden;
