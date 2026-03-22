@@ -4,12 +4,14 @@ import { appConfigs } from "./config/appConfig";
 import TopBar from "./components/TopBar/TopBar";
 import Window from "./components/Window/Window";
 import DesktopIcon from "./components/DesktopIcon/DesktopIcon";
+import Chat from "./pages/Chat/Chat";
 import "./App.css";
 
 const Desktop = () => {
   return (
     <div className="desktop">
       <TopBar />
+      <Chat />
       <div className="desktop-icons">
         {appConfigs.map((config) => (
           <DesktopIcon
