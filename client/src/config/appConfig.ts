@@ -6,41 +6,50 @@ import techIcon from "../assets/tech.svg";
 import contactIcon from "../assets/contact.svg";
 import type { AppConfig } from "../types";
 
+import AboutMe from "../pages/AboutMe/AboutMe";
+import Experience from "../pages/Experience/Experience";
+import Projects from "../pages/Projects/Projects";
+import Education from "../pages/Education/Education";
+import TechStack from "../pages/TechStack/TechStack";
+import Contact from "../pages/Contact/Contact";
+
+import { createElement } from "react";
+
 export const appConfigs: AppConfig[] = [
   {
     id: "about",
     title: "About Me",
     icon: profileIcon,
-    content: null,
+    content: createElement(AboutMe),
   },
   {
     id: "experience",
     title: "Experience",
     icon: experienceIcon,
-    content: null,
+    content: createElement(Experience),
   },
   {
     id: "projects",
     title: "Projects",
     icon: projectsIcon,
-    content: null,
+    content: createElement(Projects),
   },
   {
     id: "education",
     title: "Education",
     icon: educationIcon,
-    content: null,
+    content: createElement(Education),
   },
   {
     id: "tech",
     title: "Tech Stack",
     icon: techIcon,
-    content: null,
+    content: createElement(TechStack),
   },
   {
     id: "contact",
     title: "Contact",
     icon: contactIcon,
-    content: null,
+    content: createElement(Contact),
   },
 ];
