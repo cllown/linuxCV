@@ -15,15 +15,18 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
   if (!windowState || !windowState.isOpen || windowState.isMinimized)
     return null;
 
-  return (
+    const initialX = Math.max(0, (window.innerWidth - 420) / 2);
+    const initialY = Math.max(28, (window.innerHeight - 300) / 2);
+
+    return (
     <motion.div
       drag
       dragMomentum={false}
       dragConstraints={{
-        left: 0,
-        top: 0,
-        right: window.innerWidth - 400,
-        bottom: window.innerHeight - 300,
+        left: -initialX,
+        top: 28 - initialY,
+        right: window.innerWidth - 420 - initialX,
+        bottom: window.innerHeight - 300 - initialY,
       }}
       onMouseDown={() => focusWindow(id)}
       initial={{ scale: 0.9, opacity: 0 }}
@@ -33,6 +36,8 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
       style={{
         zIndex: windowState.zIndex,
         position: "absolute",
+        left: Math.max(0, (window.innerWidth - 420) / 2),
+        top: Math.max(28, (window.innerHeight - 300) / 2),
         width: 420,
         minHeight: 300,
         display: "flex",
@@ -69,9 +74,7 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
       </div>
 
       {/* Window Content */}
-      <div className="window-content custom-scrollbar">
-        {children}
-      </div>
+      <div className="window-content custom-scrollbar">{children}</div>
     </motion.div>
   );
 };

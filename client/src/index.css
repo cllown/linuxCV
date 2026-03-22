@@ -41,7 +41,7 @@
 
   /* ── Text ── */
   --text-primary: #ffffff;
-  --text-secondary: rgba(255, 255, 255, 0.65);
+  --text-secondary: #7b899d;
   --text-muted: var(--secondary);
 
   /* ── Window controls ── */
