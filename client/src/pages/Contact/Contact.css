@@ -1,44 +1,120 @@
 .contact {
+  padding: 24px;
+  width: 574px;
+  position: relative;
+  color: #ffffff;
   display: flex;
   flex-direction: column;
-  gap: 1rem;
-}
-
-.contact__intro {
-  font-size: 0.8rem;
-  color: var(--text-secondary);
-  line-height: 1.5;
-  margin: 0;
+  gap: 20px;
 }
 
 .contact__links {
   display: flex;
-  flex-direction: column;
-  gap: 0.5rem;
+  justify-content: center;
+  gap: 16px;
 }
 
-.contact__item {
+.contact__link-icon {
+  width: 36px;
+  height: 36px;
+  background: rgba(166, 81, 251, 0.2);
+  border-radius: 50%;
   display: flex;
+  justify-content: center;
   align-items: center;
-  gap: 0.65rem;
-  padding: 0.6rem 0.85rem;
-  background: rgba(166, 81, 251, 0.06);
-  border: 1px solid rgba(166, 81, 251, 0.12);
-  border-radius: 0.6rem;
-  text-decoration: none;
-  color: var(--text-primary);
-  font-family: var(--font-code);
-  font-size: 0.75rem;
-  transition: all 0.2s ease;
 }
 
-.contact__item:hover {
-  border-color: rgba(166, 81, 251, 0.35);
-  background: rgba(166, 81, 251, 0.1);
+.contact__link-icon img {
+  width: 16px;
+  height: 16px;
 }
 
-.contact__icon {
-  width: 18px;
-  height: 18px;
-  opacity: 0.85;
+.contact__header {
+  text-align: center;
+}
+
+.contact__title {
+  font-family: "Space Grotesk", sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  background: linear-gradient(100.02deg, #a651fb 0%, #3c83f6 50%, #1fd5f9 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  margin: 0 0 8px 0;
+}
+
+.contact__subtitle {
+  font-family: "Inter", sans-serif;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+}
+
+.contact__form {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.contact__row {
+  display: flex;
+  gap: 20px;
+}
+
+.contact__field {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  flex: 1;
+}
+
+.contact__field label {
+  font-family: "Inter", sans-serif;
+  font-size: 12px;
+  color: #7588a3;
+}
+
+.contact__field input,
+.contact__field textarea {
+  background: rgba(11, 17, 30, 0.6);
+  border: 1px solid rgba(34, 47, 68, 0.3);
+  backdrop-filter: blur(12px);
+  border-radius: 8px;
+  padding: 10px;
+  color: #ffffff;
+  font-family: "Inter", sans-serif;
+  font-size: 14px;
+}
+
+.contact__field textarea {
+  height: 117px;
+  resize: none;
+}
+
+.contact__submit {
+  background: var(--gradient-text);
+  color: white;
+  border: none;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: opacity 0.2s;
+}
+
+.contact__submit:disabled {
+  opacity: 0.5;
+  cursor: not-allowed;
+}
+
+.contact__success {
+  color: #10b981;
+  font-size: 14px;
+  text-align: center;
+}
+
+.contact__error {
+  color: #ef4444;
+  font-size: 14px;
+  text-align: center;
 }

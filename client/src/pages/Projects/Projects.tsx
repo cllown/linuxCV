@@ -1,4 +1,5 @@
 import CardGrid from "../../components/layouts/CardGrid";
+import { LINKS } from "../../config/links";
 
 const Projects = () => (
   <CardGrid
@@ -8,7 +9,7 @@ const Projects = () => (
         title: "linuxCV",
         description: "Interactive CV styled as a Linux desktop environment.",
         tags: ["React", "TypeScript", "Framer Motion"],
-        link: "https://github.com/cllown/linuxCV",
+        link: LINKS.projectRepo,
       },
       {
         title: "Project Two",

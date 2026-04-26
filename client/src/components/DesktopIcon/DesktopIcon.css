@@ -1,3 +1,21 @@
+/* ── Desktop hint ── */
+.desktop-hint {
+  position: absolute;
+  top: calc(28px + 1.5rem - 24px);
+  right: 2.75rem; /* Aligned with icons but slightly offset for better look */
+  font-family: var(--font-code);
+  font-weight: 400;
+  font-size: 12px;
+  line-height: 24px;
+  color: #7588a3;
+  display: flex;
+  align-items: center;
+  pointer-events: none;
+  z-index: 5;
+  user-select: none;
+  padding-top: 0.5rem;
+}
+
 /* ── Desktop icon grid ── */
 .desktop-icons {
   display: flex;
@@ -34,7 +52,7 @@
 }
 
 .desktop-icon:active {
-  transform: scale(0.95);
+  transform: scale(0.98);
 }
 
 .desktop-icon__container {
@@ -43,37 +61,27 @@
   justify-content: center;
   width: 56px;
   height: 56px;
-  border-radius: 1rem;
-  background: var(--icon-bg);
-  backdrop-filter: blur(8px);
-  -webkit-backdrop-filter: blur(8px);
-  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow:
-    0 4px 16px rgba(166, 81, 251, 0.1),
-    inset 0 1px 0 rgba(255, 255, 255, 0.06);
+  border-radius: 12px;
+  background: #090e19;
+  transition: background-color 0.2s ease;
 }
 
 .desktop-icon:hover .desktop-icon__container {
-  background: var(--icon-hover-bg);
-  transform: scale(1.08);
-  box-shadow:
-    0 6px 24px rgba(166, 81, 251, 0.2),
-    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  background: #151c29;
 }
 
 .desktop-icon__img {
   width: 28px;
   height: 28px;
   object-fit: contain;
-  filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.2));
 }
 
 .desktop-icon__label {
   font-family: var(--font-text);
-  font-size: 0.7rem;
+  font-size: 0.75rem;
   font-weight: 500;
   text-align: center;
   color: var(--text-primary);
-  text-shadow: 0 1px 3px rgba(0, 0, 0, 0.5);
   letter-spacing: 0.01em;
+  margin-top: 2px;
 }

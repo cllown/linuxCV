@@ -14,6 +14,9 @@ const Desktop = () => {
       <TopBar />
       <Chat />
       <Banner />
+      <div className="desktop-hint">
+        💡 Click on folders to explore my workspace
+      </div>
       <div className="desktop-icons">
         {appConfigs.map((config) => (
           <DesktopIcon

@@ -1,0 +1,135 @@
+.education {
+  padding: 24px;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+}
+
+.education__header {
+  text-align: center;
+}
+
+.education__title {
+  font-family: var(--font-title);
+  font-size: 24px;
+  font-weight: 700;
+  color: #ffffff;
+}
+
+.education__cards {
+  display: grid;
+  grid-template-columns: 1.1fr 0.9fr;
+  gap: 24px;
+}
+
+.education-card {
+  background: rgba(11, 17, 30, 0.4);
+  border: 1px solid rgba(255, 255, 255, 0.05);
+  border-radius: 16px;
+  padding: 16px 20px;
+  display: flex;
+  gap: 16px;
+  align-items: flex-start;
+  transition:
+    transform 0.2s ease,
+    background 0.2s ease;
+}
+
+.education-card:hover {
+  background: rgba(11, 17, 30, 0.6);
+  transform: translateY(-2px);
+}
+
+.education-card__icon-box {
+  width: 40px;
+  height: 40px;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-shrink: 0;
+}
+
+.education-card__icon-box img {
+  width: 18px;
+  height: 18px;
+}
+
+.education-card__icon-box--purple {
+  background: rgba(166, 81, 251, 0.15);
+}
+
+.education-card__icon-box--teal {
+  background: rgba(31, 213, 249, 0.15);
+}
+
+.education-card__content {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.education-card__title {
+  font-family: var(--font-text);
+  font-size: 16px;
+  font-weight: 600;
+  color: #ffffff;
+  line-height: 1.4;
+  margin: 0;
+}
+
+.education-card__subtitle {
+  font-size: 13px;
+  color: #94a3b8;
+  margin: 0;
+}
+
+.education-card__meta {
+  font-family: var(--font-code);
+  font-size: 11px;
+  color: #64748b;
+  margin-top: 2px;
+}
+
+.education-card__year {
+  color: #1fd5f9;
+  font-weight: 600;
+  margin-right: 8px;
+}
+
+.education-card__list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.education-card__list-item {
+  font-size: 13px;
+  color: #94a3b8;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  line-height: 1.2;
+}
+
+.education-card__list-item::before {
+  content: "";
+  width: 5px;
+  height: 5px;
+  border-radius: 50%;
+  background: #1fd5f9;
+  flex-shrink: 0;
+}
+
+@media (max-width: 850px) {
+  .education__cards {
+    grid-template-columns: 1fr;
+  }
+
+  .education {
+    padding: 24px;
+  }
+}

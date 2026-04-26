@@ -1,5 +1,6 @@
 # Variables
 CLIENT_DIR = client
+SERVER_DIR = server
 DOCKER_COMPOSE = docker-compose
 
 # Default target
@@ -7,7 +8,8 @@ DOCKER_COMPOSE = docker-compose
 help:
 	@echo "Available commands:"
 	@echo "  make install      - Install dependencies for all parts"
-	@echo "  make dev          - Run client in development mode"
+	@echo "  make dev          - Run client and server in development mode"
+	@echo "  make server       - Run only server"
 	@echo "  make build        - Build client for production"
 	@echo "  make deploy       - Deploy client to GitHub Pages"
 	@echo "  make lint         - Run linter"
@@ -19,11 +21,24 @@ help:
 .PHONY: install
 install:
 	cd $(CLIENT_DIR) && npm install
+	cd $(SERVER_DIR) && npm install
 
 # Development
 .PHONY: dev
 dev:
+	make -j 2 dev-client dev-server
+
+.PHONY: dev-client
+dev-client:
 	cd $(CLIENT_DIR) && npm run dev
+
+.PHONY: dev-server
+dev-server:
+	cd $(SERVER_DIR) && npm run dev
+
+.PHONY: server
+server:
+	cd $(SERVER_DIR) && npm run dev
 
 # Production Build
 .PHONY: build

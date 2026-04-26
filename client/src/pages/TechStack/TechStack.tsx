@@ -1,17 +1,61 @@
-import CardGrid from "../../components/layouts/CardGrid";
+import "./TechStack.css";
 
-const TechStack = () => (
-  <CardGrid
-    columns={3}
-    items={[
-      { title: "React", tags: ["Frontend"] },
-      { title: "TypeScript", tags: ["Language"] },
-      { title: "Node.js", tags: ["Backend"] },
-      { title: "Vite", tags: ["Tooling"] },
-      { title: "Framer Motion", tags: ["Animation"] },
-      { title: "CSS", tags: ["Styling"] },
-    ]}
-  />
-);
+const categories = [
+  {
+    title: "Frontend",
+    color: "#A651FB",
+    tags: ["React", "TypeScript", "Vite", "Framer Motion", "CSS"],
+  },
+  {
+    title: "Backend",
+    color: "#3C83F6",
+    tags: ["Node.js", "Express", "Python", "Django", "FastAPI", "PostgreSQL"],
+  },
+  {
+    title: "Databases",
+    color: "#1FD5F9",
+    tags: ["PostgreSQL", "MongoDB", "Redis"],
+  },
+  {
+    title: "DevOps & Tools",
+    color: "#1FD5F9",
+    tags: ["Docker", "Git", "AWS", "CI/CD", "Linux"],
+  },
+];
+
+const TechStack = () => {
+  return (
+    <div className="tech-stack">
+      <div className="tech-stack__header">
+        <h1 className="tech-stack__main-title">
+          Tools & <span className="gradient-text">Technologies</span>
+        </h1>
+        <p className="tech-stack__main-subtitle">
+          A curated collection of technologies I use to bring ideas to life
+        </p>
+      </div>
+      <div className="tech-stack__categories">
+        {categories.map((category, i) => (
+          <div className="tech-stack-card" key={i}>
+            <div className="tech-stack-card__header">
+              <div
+                className="tech-stack-card__marker"
+                style={{ background: category.color }}
+              ></div>
+              <h3 className="tech-stack-card__title">{category.title}</h3>
+            </div>
+            <div className="tech-stack-card__tags">
+              {category.tags.map((tag) => (
+                <span className="tech-stack-card__tag" key={tag}>
+                  {tag}
+                </span>
+              ))}
+            </div>
+          </div>
+        ))}
+      </div>
+    </div>
+  );
+};
 
 export default TechStack;

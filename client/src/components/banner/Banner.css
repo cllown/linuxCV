@@ -41,6 +41,8 @@
 }
 
 .banner__button {
+  display: block;
+  text-decoration: none;
   background: var(--gradient-text);
   color: white;
   border: none;
@@ -53,6 +55,7 @@
   position: relative;
   transition: all 0.3s ease;
   box-shadow: 0 4px 15px rgba(166, 81, 251, 0.3);
+  box-sizing: border-box;
 }
 
 .banner__button:hover {

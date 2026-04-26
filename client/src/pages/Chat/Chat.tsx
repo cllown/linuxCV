@@ -17,22 +17,46 @@ const Chat = () => {
   const [messages, setMessages] = useState<Message[]>([]);
   const [input, setInput] = useState("");
 
-  const sendMessage = (text: string) => {
-    if (!text.trim()) return;
+  const [isLoading, setIsLoading] = useState(false);
+
+  const sendMessage = async (text: string) => {
+    if (!text.trim() || isLoading) return;
+
     const userMsg: Message = { role: "user", text: text.trim() };
     setMessages((prev) => [...prev, userMsg]);
     setInput("");
+    setIsLoading(true);
 
-    // Mock response — replace with backend fetch later
-    setTimeout(() => {
+    try {
+      const response = await fetch("http://localhost:5000/api/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text.trim(), history: messages }),
+      });
+
+      const data = await response.json();
+
       setMessages((prev) => [
         ...prev,
         {
           role: "assistant",
-          text: "Thanks for your question! This will be connected to an AI backend soon.",
+          text:
+            data.reply ||
+            "I'm having trouble thinking right now. Please try again.",
         },
       ]);
-    }, 800);
+    } catch (error) {
+      console.error("Chat error:", error);
+      setMessages((prev) => [
+        ...prev,
+        {
+          role: "assistant",
+          text: "System error: Unable to connect to the AI brain.",
+        },
+      ]);
+    } finally {
+      setIsLoading(false);
+    }
   };
 
   const handleSubmit = (e: React.FormEvent) => {
@@ -58,10 +82,7 @@ const Chat = () => {
             </div>
           )}
           {messages.map((msg, i) => (
-            <div
-              key={i}
-              className={`chat-msg chat-msg--${msg.role}`}
-            >
+            <div key={i} className={`chat-msg chat-msg--${msg.role}`}>
               {msg.text}
             </div>
           ))}
@@ -90,8 +111,12 @@ const Chat = () => {
               value={input}
               onChange={(e) => setInput(e.target.value)}
             />
-            <button type="submit" className="chat-panel__send" disabled={!input.trim()}>
-              ↑
+            <button
+              type="submit"
+              className="chat-panel__send"
+              disabled={!input.trim() || isLoading}
+            >
+              {isLoading ? "..." : "↑"}
             </button>
           </form>
         </div>

@@ -12,4 +12,5 @@ export type BannerConfig = {
   subtitle: string;
   text: string;
   buttonLabel: string;
+  link: string;
 };
