@@ -4,7 +4,7 @@ import projectsIcon from "../assets/projects.svg";
 import educationIcon from "../assets/education.svg";
 import techIcon from "../assets/tech.svg";
 import contactIcon from "../assets/contact.svg";
-import type { AppConfig } from "../types";
+import type { AppConfig } from "./types";
 
 import AboutMe from "../pages/AboutMe/AboutMe";
 import Experience from "../pages/Experience/Experience";

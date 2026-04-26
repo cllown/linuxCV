@@ -1,15 +1,8 @@
 import { useOS } from "../../context/OSContext";
 import "./DesktopIcon.css";
+import type { DesktopIconProps } from "./types";
 
-const DesktopIcon = ({
-  id,
-  title,
-  icon,
-}: {
-  id: string;
-  title: string;
-  icon: string;
-}) => {
+export const DesktopIcon = ({ id, title, icon }: DesktopIconProps) => {
   const { openWindow } = useOS();
 
   return (
@@ -21,5 +14,3 @@ const DesktopIcon = ({
     </div>
   );
 };
-
-export default DesktopIcon;

@@ -1,15 +1,10 @@
 import React from "react";
 import { motion } from "framer-motion";
 import { useOS } from "../../context/OSContext";
+import type { WindowProps } from "./types";
 import "./Window.css";
 
-interface WindowProps {
-  id: string;
-  title: string;
-  children: React.ReactNode;
-}
-
-const Window: React.FC<WindowProps> = ({ id, title, children }) => {
+export const Window: React.FC<WindowProps> = ({ id, children }) => {
   const { windows, closeWindow, focusWindow, minimizeWindow } = useOS();
 
   const windowState = windows[id];
@@ -39,8 +34,10 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
         position: "absolute",
         left: initialX,
         top: initialY,
-        width: 420,
-        minHeight: 300,
+        width: "auto",
+        height: "auto",
+        maxWidth: "100vw",
+        maxHeight: "100vh",
         display: "flex",
         flexDirection: "column",
       }}
@@ -50,12 +47,8 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
       <div className="window-header">
         <div className="window-controls">
           <button
-            onClick={(e) => {
-              e.stopPropagation();
-              closeWindow(id);
-            }}
-            className="window-control window-control--close"
-            title="Close"
+            className="window-control window-control--maximize"
+            title="Maximize"
           />
           <button
             onClick={(e) => {
@@ -66,12 +59,14 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
             title="Minimize"
           />
           <button
-            className="window-control window-control--maximize"
-            title="Maximize"
+            onClick={(e) => {
+              e.stopPropagation();
+              closeWindow(id);
+            }}
+            className="window-control window-control--close"
+            title="Close"
           />
         </div>
-        <span className="window-header__title">{title}</span>
-        <div style={{ width: 48 }} /> {/* Spacer for centering */}
       </div>
 
       {/* Window Content */}
@@ -79,5 +74,3 @@ const Window: React.FC<WindowProps> = ({ id, title, children }) => {
     </motion.div>
   );
 };
-
-export default Window;

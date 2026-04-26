@@ -4,10 +4,8 @@
   align-items: center;
   justify-content: space-between;
   padding: 0.75rem 1rem;
-  background: rgba(255, 255, 255, 0.05);
   cursor: move;
   user-select: none;
-  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
 }
 
 .window-header__title {
@@ -19,9 +17,11 @@
 }
 
 .window-controls {
+  justify-content: flex-end;
   display: flex;
   gap: 0.5rem;
   align-items: center;
+  width: 100%;
 }
 
 .window-control {
@@ -54,7 +54,7 @@
 
 .window-content {
   flex: 1 1 0%;
-  padding: 1.25rem;
+  padding: 0;
   overflow: auto;
   font-family: var(--font-text);
   font-size: 0.875rem;

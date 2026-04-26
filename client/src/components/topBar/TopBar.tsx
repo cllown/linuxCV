@@ -7,7 +7,7 @@ import wifiIcon from "../../assets/panel/wifi1.svg";
 import soundIcon from "../../assets/panel/sound.svg";
 import batteryIcon from "../../assets/panel/battery.svg";
 
-const TopBar = () => {
+export const TopBar = () => {
   const { windows, activeWindowId } = useOS();
   const [time, setTime] = useState(() => new Date());
 
@@ -61,5 +61,3 @@ const TopBar = () => {
     </div>
   );
 };
-
-export default TopBar;
