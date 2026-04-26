@@ -6,6 +6,13 @@ export interface ContactMessage {
   created_at?: string;
 }
 
+export interface ChatSession {
+  id: string;
+  title: string;
+  model: string;
+  created_at?: string;
+}
+
 export interface ChatMessage {
   role: "user" | "assistant" | "system";
   content: string;
@@ -16,5 +23,15 @@ export interface LLMResponse {
 }
 
 export interface LLMProvider {
-  chat(message: string, history: ChatMessage[]): Promise<string>;
+  chat(
+    message: string,
+    history: ChatMessage[],
+    model?: string,
+  ): Promise<string>;
+}
+
+export interface ApiError {
+  message: string;
+  code?: string;
+  details?: any;
 }

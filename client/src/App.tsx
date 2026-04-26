@@ -1,4 +1,6 @@
+import { useEffect } from "react";
 import { OSProvider } from "./context/OSProvider";
+import { useOS } from "./context/OSContext";
 import { appConfigs } from "./config/appConfig";
 
 import { TopBar } from "./components/topBar/TopBar";
@@ -9,6 +11,25 @@ import "./App.css";
 import Banner from "./components/banner/Banner";
 
 const Desktop = () => {
+  const { isAdmin, setIsAdmin } = useOS();
+
+  useEffect(() => {
+    const handleKeyDown = (e: KeyboardEvent) => {
+      // Secret key combo: Ctrl + Alt + A (KeyA is more reliable)
+      if (e.ctrlKey && e.altKey && e.code === "KeyA") {
+        e.preventDefault(); // Prevent browser default behavior
+        const newState = !isAdmin;
+        setIsAdmin(newState);
+        console.log(`Admin mode: ${newState ? "ENABLED" : "DISABLED"}`);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, [isAdmin, setIsAdmin]);
+
+  const visibleApps = appConfigs.filter((app) => !app.isAdminOnly || isAdmin);
+
   return (
     <div className="desktop">
       <TopBar />
@@ -18,7 +39,7 @@ const Desktop = () => {
         💡 Click on folders to explore my workspace
       </div>
       <div className="desktop-icons">
-        {appConfigs.map((config) => (
+        {visibleApps.map((config) => (
           <DesktopIcon
             key={config.id}
             id={config.id}
@@ -28,7 +49,7 @@ const Desktop = () => {
         ))}
       </div>
 
-      {appConfigs.map((config) => (
+      {visibleApps.map((config) => (
         <Window key={config.id} id={config.id} title={config.title}>
           {config.content}
         </Window>

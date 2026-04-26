@@ -8,6 +8,19 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
   const [windows, setWindows] = useState<Record<string, WindowState>>({});
   const [activeWindowId, setActiveWindowId] = useState<string | null>(null);
   const [maxZIndex, setMaxZIndex] = useState(10);
+  const [isAdmin, setIsAdminState] = useState<boolean>(() => {
+    const urlParams = new URLSearchParams(window.location.search);
+    if (urlParams.get("admin") === "1") {
+      localStorage.setItem("isAdmin", "true");
+      return true;
+    }
+    return localStorage.getItem("isAdmin") === "true";
+  });
+
+  const setIsAdmin = useCallback((val: boolean) => {
+    setIsAdminState(val);
+    localStorage.setItem("isAdmin", val ? "true" : "false");
+  }, []);
 
   const openWindow = useCallback(
     (id: string, title: string) => {
@@ -67,6 +80,8 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
       value={{
         windows,
         activeWindowId,
+        isAdmin,
+        setIsAdmin,
         openWindow,
         closeWindow,
         minimizeWindow,

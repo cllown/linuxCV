@@ -7,33 +7,63 @@ export class OpenRouterService implements LLMProvider {
   private readonly apiKey = config.openrouterApiKey;
   private readonly apiUrl = "https://openrouter.ai/api/v1/chat/completions";
 
-  async chat(message: string, history: ChatMessage[]): Promise<string> {
+  async chat(
+    message: string,
+    history: ChatMessage[],
+    model?: string,
+  ): Promise<string> {
     if (!this.apiKey) {
       throw new Error("OpenRouter API key is not configured");
     }
 
-    const response = await axios.post(
-      this.apiUrl,
-      {
-        model: llmConfig.model,
-        messages: [
-          { role: "system", content: llmConfig.systemPrompt },
-          ...history,
-          { role: "user", content: message },
-        ],
-        temperature: llmConfig.temperature,
-        max_tokens: llmConfig.maxTokens,
-      },
-      {
-        headers: {
-          Authorization: `Bearer ${this.apiKey}`,
-          "Content-Type": "application/json",
-          "HTTP-Referer": "https://linuxcv.dev",
-          "X-Title": "linuxCV",
+    try {
+      const response = await axios.post(
+        this.apiUrl,
+        {
+          model: model || llmConfig.model,
+          messages: [
+            { role: "system", content: llmConfig.systemPrompt },
+            ...history,
+            { role: "user", content: message },
+          ],
+          temperature: llmConfig.temperature,
+          max_tokens: llmConfig.maxTokens,
         },
-      }
-    );
+        {
+          headers: {
+            Authorization: `Bearer ${this.apiKey}`,
+            "Content-Type": "application/json",
+            "HTTP-Referer": "https://linuxcv.dev",
+            "X-Title": "linuxCV",
+          },
+        },
+      );
 
-    return response.data.choices?.[0]?.message?.content || "No response from AI.";
+      return (
+        response.data.choices?.[0]?.message?.content || "No response from AI."
+      );
+    } catch (error: any) {
+      if (axios.isAxiosError(error)) {
+        const status = error.response?.status;
+        const data = error.response?.data;
+
+        if (status === 429) {
+          const limitErr = new Error("Rate limit reached for this model. Please try another model or wait a moment.");
+          (limitErr as any).code = "RATE_LIMIT_EXCEEDED";
+          (limitErr as any).status = 429;
+          throw limitErr;
+        }
+        if (status === 401) {
+          const authErr = new Error("Invalid API Key. Please check your OpenRouter configuration.");
+          (authErr as any).code = "AUTH_ERROR";
+          (authErr as any).status = 401;
+          throw authErr;
+        }
+        if (data?.error?.message) {
+          throw new Error(`OpenRouter Error: ${data.error.message}`);
+        }
+      }
+      throw error;
+    }
   }
 }

@@ -1,13 +1,19 @@
 import { Request, Response, NextFunction } from "express";
+import { ApiError } from "../types";
 
 export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
-  console.error("Error Details:", JSON.stringify(err, null, 2));
-
   const status = err.status || 500;
-  const message = err.message || "Internal Server Error";
+  
+  const apiError: ApiError = {
+    message: err.message || "Internal Server Error",
+    code: err.code || "INTERNAL_ERROR",
+    details: process.env.NODE_ENV === "development" ? err : undefined,
+  };
+
+  console.error(`[Error ${status}]:`, apiError.message);
 
   res.status(status).json({
-    error: message,
-    details: process.env.NODE_ENV === "development" ? err : undefined,
+    success: false,
+    error: apiError,
   });
 };
