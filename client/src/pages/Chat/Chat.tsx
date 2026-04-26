@@ -2,6 +2,7 @@ import { useState, useEffect, useRef } from "react";
 import "./Chat.css";
 import { AVAILABLE_MODELS, type ChatModel } from "../../config/chatConfig";
 import type { Message, ChatSession, ApiError } from "../../types/chat";
+import { API_BASE_URL } from "../../config/api";
 
 const suggestions = [
   "What's your tech stack?",
@@ -34,7 +35,7 @@ const Chat = () => {
 
   const fetchSessions = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/chat/sessions");
+      const response = await fetch(`${API_BASE_URL}/api/chat/sessions`);
       const data = await response.json();
       setSessions(data);
     } catch (error) {
@@ -44,7 +45,7 @@ const Chat = () => {
 
   const startNewChat = async (model = selectedModel.id) => {
     try {
-      const response = await fetch("http://localhost:5000/api/chat/sessions", {
+      const response = await fetch(`${API_BASE_URL}/api/chat/sessions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({ model, title: "New Chat" }),
@@ -62,7 +63,7 @@ const Chat = () => {
   const loadSession = async (sessionId: string) => {
     try {
       const response = await fetch(
-        `http://localhost:5000/api/chat/sessions/${sessionId}/history`,
+        `${API_BASE_URL}/api/chat/sessions/${sessionId}/history`,
       );
       const history = await response.json();
 
@@ -88,7 +89,7 @@ const Chat = () => {
     let sessionId = currentSessionId;
     if (!sessionId) {
       // Auto-start session on first message
-      const response = await fetch("http://localhost:5000/api/chat/sessions", {
+      const response = await fetch(`${API_BASE_URL}/api/chat/sessions`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
@@ -108,7 +109,7 @@ const Chat = () => {
     setIsLoading(true);
 
     try {
-      const response = await fetch("http://localhost:5000/api/chat", {
+      const response = await fetch(`${API_BASE_URL}/api/chat`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({

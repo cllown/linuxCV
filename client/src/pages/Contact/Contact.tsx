@@ -5,7 +5,9 @@ import githubIcon from "../../assets/github.svg";
 import linIcon from "../../assets/lin.svg";
 import contactIcon from "../../assets/contact.svg";
 
-const API_URL = "http://localhost:5000/api";
+import { API_BASE_URL } from "../../config/api";
+
+const API_URL = `${API_BASE_URL}/api`;
 
 const Contact = () => {
   const [formData, setFormData] = useState({ name: "", email: "", message: "" });

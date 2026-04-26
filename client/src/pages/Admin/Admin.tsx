@@ -1,5 +1,7 @@
 import { useState, useEffect } from "react";
 import "./Admin.css";
+import { API_BASE_URL } from "../../config/api";
+
 
 type Contact = {
   id: number;
@@ -19,7 +21,7 @@ const Admin = () => {
 
   const fetchContacts = async () => {
     try {
-      const response = await fetch("http://localhost:5000/api/admin/contacts", {
+      const response = await fetch(`${API_BASE_URL}/api/admin/contacts`, {
         headers: {
           "x-admin-token": "secret_admin_123",
         },
