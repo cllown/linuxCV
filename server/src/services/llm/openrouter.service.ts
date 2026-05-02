@@ -48,13 +48,17 @@ export class OpenRouterService implements LLMProvider {
         const data = error.response?.data;
 
         if (status === 429) {
-          const limitErr = new Error("Rate limit reached for this model. Please try another model or wait a moment.");
+          const limitErr = new Error(
+            "Rate limit reached for this model. Please try another model or wait a moment.",
+          );
           (limitErr as any).code = "RATE_LIMIT_EXCEEDED";
           (limitErr as any).status = 429;
           throw limitErr;
         }
         if (status === 401) {
-          const authErr = new Error("Invalid API Key. Please check your OpenRouter configuration.");
+          const authErr = new Error(
+            "Invalid API Key. Please check your OpenRouter configuration.",
+          );
           (authErr as any).code = "AUTH_ERROR";
           (authErr as any).status = 401;
           throw authErr;
