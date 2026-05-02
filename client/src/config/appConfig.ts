@@ -12,10 +12,18 @@ import Education from "../pages/Education/Education";
 import TechStack from "../pages/TechStack/TechStack";
 import Contact from "../pages/Contact/Contact";
 import Admin from "../pages/Admin/Admin";
+import Chat from "../pages/Chat/Chat";
+import chatIcon from "../assets/chat.svg";
 
 import { createElement } from "react";
 
 export const appConfigs: AppConfig[] = [
+  {
+    id: "chat",
+    title: "AI Assistant",
+    icon: chatIcon,
+    content: createElement(Chat),
+  },
   {
     id: "about",
     title: "About Me",

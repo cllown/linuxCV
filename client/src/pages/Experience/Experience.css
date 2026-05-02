@@ -156,11 +156,13 @@
   .experience-page {
     zoom: 1;
     padding: 1rem;
+    max-width: 100%;
   }
   .experience-container {
-    flex-direction: row-reverse;
+    flex-direction: column;
   }
   .experience-timeline {
     display: none;
   }
 }
+

@@ -146,3 +146,31 @@ body {
     box-shadow: 0 0 25px rgba(166, 81, 251, 0.25);
   }
 }
+
+@media (max-width: 767px) {
+  .banner {
+    display: none !important;
+  }
+
+  .banner__title {
+    font-size: 1.25rem !important;
+  }
+
+  .banner__text {
+    font-size: 0.85rem !important;
+    margin-bottom: 1.5rem !important;
+  }
+
+  .desktop-hint {
+    bottom: 160px !important; /* Above MobileNav and FAB */
+    width: 100% !important;
+    text-align: center !important;
+    left: 0 !important;
+    font-size: 11px !important;
+  }
+
+  .top-bar {
+    padding: 0 1rem !important;
+    height: 50px !important;
+  }
+}

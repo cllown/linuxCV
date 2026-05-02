@@ -3,6 +3,7 @@ export type OSContextType = {
   activeWindowId: string | null;
   isAdmin: boolean;
   setIsAdmin: (val: boolean) => void;
+  isMobile: boolean;
   openWindow: (id: string, title: string) => void;
   closeWindow: (id: string) => void;
   minimizeWindow: (id: string) => void;

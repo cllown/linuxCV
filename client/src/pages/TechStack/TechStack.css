@@ -104,3 +104,30 @@
   font-size: 13px;
   color: #ffffff;
 }
+
+@media (max-width: 767px) {
+  .tech-stack {
+    padding: 12px;
+    gap: 12px;
+    max-height: none;
+  }
+
+
+  .tech-stack__main-title {
+    font-size: 20px;
+  }
+
+  .tech-stack-card {
+    padding: 12px 14px;
+  }
+
+  .tech-stack-card__tag {
+    padding: 4px 10px;
+    font-size: 12px;
+  }
+
+  .tech-stack__categories {
+    padding-right: 0;
+  }
+}
+

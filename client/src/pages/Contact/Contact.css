@@ -1,11 +1,13 @@
 .contact {
   padding: 24px;
-  width: 574px;
+  width: 100%;
+  max-width: 574px;
   position: relative;
   color: #ffffff;
   display: flex;
   flex-direction: column;
   gap: 20px;
+  box-sizing: border-box;
 }
 
 .contact__links {
@@ -117,4 +119,23 @@
   color: #ef4444;
   font-size: 14px;
   text-align: center;
+}
+
+@media (max-width: 767px) {
+  .contact {
+    padding: 16px;
+  }
+
+  .contact__title {
+    font-size: 28px;
+  }
+
+  .contact__row {
+    flex-direction: column;
+    gap: 16px;
+  }
+
+  .contact__field textarea {
+    height: 100px;
+  }
 }

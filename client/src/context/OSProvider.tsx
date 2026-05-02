@@ -17,6 +17,14 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
     return localStorage.getItem("isAdmin") === "true";
   });
 
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+
+  React.useEffect(() => {
+    const handleResize = () => setIsMobile(window.innerWidth < 768);
+    window.addEventListener("resize", handleResize);
+    return () => window.removeEventListener("resize", handleResize);
+  }, []);
+
   const setIsAdmin = useCallback((val: boolean) => {
     setIsAdminState(val);
     localStorage.setItem("isAdmin", val ? "true" : "false");
@@ -82,6 +90,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
         activeWindowId,
         isAdmin,
         setIsAdmin,
+        isMobile,
         openWindow,
         closeWindow,
         minimizeWindow,

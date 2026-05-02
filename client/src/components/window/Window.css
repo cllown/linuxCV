@@ -61,3 +61,19 @@
   line-height: 1.6;
   color: var(--text-secondary);
 }
+
+/* ── Mobile styles ── */
+.window--mobile {
+  border-radius: 0 !important;
+  border: none !important;
+}
+
+.window--mobile .window-header {
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-bottom: 1px solid var(--glass-border);
+}
+
+.window--mobile .window-controls {
+  flex-direction: row-reverse; /* Put close button on the left or just keep it simple */
+}

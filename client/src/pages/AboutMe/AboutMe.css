@@ -1,19 +1,22 @@
-.about-me-container {
-  width: 650px;
-  height: 282px;
-  overflow: hidden;
+.about-me {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+  width: 100%;
+  max-width: 650px;
+  padding: 0 20px;
+  box-sizing: border-box;
 }
 
-.about-photo {
+.about-me__photo {
   flex: 0 0 auto;
   display: flex;
   justify-content: center;
   align-items: flex-end;
-  margin-bottom: -1.25rem;
-  padding-left: 1.5rem;
+  margin-bottom: -1px;
 }
 
-.about-photo__img {
+.about-me__photo-img {
   width: 280px;
   height: 280px;
   object-fit: contain;
@@ -21,38 +24,36 @@
     drop-shadow(0 0 1px #fff) drop-shadow(0 0 3px rgba(255, 255, 255, 0.5));
 }
 
-.about-info {
+.about-me__info {
   flex: 1 1 auto;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  gap: 1.25rem;
-  padding: 34px 10px 34px 20px;
+  gap: 16px;
+  padding: 32px 0 0 0;
 }
 
-.about-info__greeting {
+.about-me__greeting {
   font-family: var(--font-text);
   font-size: 1.1rem;
   color: var(--text-primary);
   opacity: 0.9;
 }
 
-.about-info__title {
+.about-me__title {
   font-family: var(--font-title);
-  font-size: 3.2rem;
+  font-size: 3rem;
   font-weight: 700;
   color: #fff;
-  line-height: 1;
+  line-height: 1.1;
   margin: 0;
-  text-transform: none;
 }
 
-.about-info__title .gradient-text {
+.about-me__title .gradient-text {
   display: block;
-  margin-top: 0.2rem;
 }
 
-.about-info__bio {
+.about-me__bio {
   font-size: 1rem;
   color: var(--text-secondary);
   line-height: 1.6;
@@ -60,13 +61,34 @@
   margin: 0;
 }
 
-/* ── Mobile responsiveness ── */
-@media (max-width: 768px) {
-  .about-photo__img {
-    width: 180px;
+@media (max-width: 767px) {
+  .about-me {
+    flex-direction: column;
+    padding: 20px;
+    gap: 0;
+    max-width: 100%;
   }
 
-  .about-info__title {
+  .about-me__photo {
+    margin-bottom: 0;
+  }
+
+  .about-me__photo-img {
+    width: 200px;
+    height: 200px;
+  }
+
+  .about-me__info {
+    padding: 20px 0;
+    text-align: center;
+    align-items: center;
+  }
+
+  .about-me__title {
     font-size: 2.2rem;
+  }
+
+  .about-me__bio {
+    font-size: 0.95rem;
   }
 }
