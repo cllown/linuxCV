@@ -1,6 +1,6 @@
 import { useReducer, useCallback, useEffect, useRef, useState } from "react";
 import { AVAILABLE_MODELS, type ChatModel } from "../../config/chatConfig";
-import type { Message, ChatSession } from "../../types/chat";
+import type { Message, ChatSession } from "./chatTypes";
 import * as api from "./chatApi";
 
 type State = {

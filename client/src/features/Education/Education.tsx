@@ -1,6 +1,6 @@
 import "./Education.css";
-import educationIcon from "../../assets/education.svg";
-import certIcon from "../../assets/certification.svg";
+import educationIcon from "../../shared/assets/icons/education.svg";
+import certIcon from "../../shared/assets/icons/certification.svg";
 
 const Education = () => {
   return (

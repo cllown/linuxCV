@@ -1,12 +1,12 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useOS } from "../../core/os/OSContext";
+import { useOS } from "@/core/os/OSContext";
 import "./TopBar.css";
 
-import wifiIcon from "../../assets/panel/wifi1.svg";
-import soundIcon from "../../assets/panel/sound.svg";
-import batteryIcon from "../../assets/panel/battery.svg";
-import avatarIcon from "../../assets/panel/avatar.svg";
+import wifiIcon from "@/shared/assets/panels/wifi1.svg";
+import soundIcon from "@/shared/assets/panels/sound.svg";
+import batteryIcon from "@/shared/assets/panels/battery.svg";
+import avatarIcon from "@/shared/assets/panels/avatar.svg";
 
 export const TopBar = () => {
   const { windows, activeWindowId } = useOS();

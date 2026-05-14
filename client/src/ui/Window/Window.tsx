@@ -1,7 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOS } from "../../core/os/OSContext";
-import type { WindowProps } from "./types";
+import type { WindowProps } from "../../shared/types/window";
 import "./Window.css";
 
 export const Window: React.FC<WindowProps> = ({ id, children }) => {

@@ -1,9 +1,9 @@
 import { useState } from "react";
 import "./Contact.css";
 import { LINKS } from "../../config/links";
-import githubIcon from "../../assets/github.svg";
-import linIcon from "../../assets/lin.svg";
-import contactIcon from "../../assets/contact.svg";
+import githubIcon from "../../shared/assets/icons/github.svg";
+import linIcon from "../../shared/assets/icons/lin.svg";
+import contactIcon from "../../shared/assets/icons/contact.svg";
 
 import { API_BASE_URL } from "../../config/api";
 

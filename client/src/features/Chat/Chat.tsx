@@ -2,18 +2,7 @@ import "./Chat.css";
 import { useChatService } from "./useChatService";
 import { ChatMessages } from "./components/ChatMessages";
 import { ChatInput } from "./components/ChatInput";
-
-export type Message = {
-  role: "user" | "assistant";
-  content: string;
-};
-
-export type ChatSession = {
-  id: string;
-  title: string;
-  model: string;
-  created_at: string;
-};
+export type { Message, ChatSession } from "./chatTypes";
 
 export type ApiError = {
   message: string;

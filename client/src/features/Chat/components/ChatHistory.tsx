@@ -1,5 +1,5 @@
 import React from "react";
-import type { ChatSession } from "../../../types/chat";
+import type { ChatSession } from "../chatTypes";
 
 type Props = {
   sessions: ChatSession[];

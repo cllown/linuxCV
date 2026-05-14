@@ -1,4 +1,4 @@
-import type { BannerConfig } from "./types";
+import type { BannerConfig } from "../shared/types/app";
 import { LINKS } from "./links";
 
 export const bannerConfig: BannerConfig = {

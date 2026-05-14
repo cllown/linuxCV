@@ -1,10 +1,10 @@
-import profileIcon from "../assets/profile.svg";
-import experienceIcon from "../assets/experience.svg";
-import educationIcon from "../assets/education.svg";
-import techIcon from "../assets/tech.svg";
-import contactIcon from "../assets/contact.svg";
-import settingsIcon from "../assets/settings.svg";
-import type { AppConfig } from "./types";
+import profileIcon from "../shared/assets/icons/profile.svg";
+import experienceIcon from "../shared/assets/icons/experience.svg";
+import educationIcon from "../shared/assets/icons/education.svg";
+import techIcon from "../shared/assets/icons/tech.svg";
+import contactIcon from "../shared/assets/icons/contact.svg";
+import settingsIcon from "../shared/assets/icons/settings.svg";
+import type { AppConfig } from "../shared/types/app";
 
 import AboutMe from "../features/AboutMe/AboutMe";
 import Experience from "../features/Experience/Experience";
@@ -13,7 +13,7 @@ import TechStack from "../features/TechStack/TechStack";
 import Contact from "../features/Contact/Contact";
 import Admin from "../features/Admin/Admin";
 import Chat from "../features/Chat/Chat";
-import chatIcon from "../assets/chat.svg";
+import chatIcon from "../shared/assets/icons/chat.svg";
 
 import { createElement } from "react";
 
