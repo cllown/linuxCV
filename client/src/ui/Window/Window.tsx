@@ -1,6 +1,6 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useOS } from "../../context/OSContext";
+import { useOS } from "../../core/os/OSContext";
 import type { WindowProps } from "./types";
 import "./Window.css";
 

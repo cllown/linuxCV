@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useOS } from "../../context/OSContext";
+import { useOS } from "../../core/os/OSContext";
 import "./TopBar.css";
 
 import wifiIcon from "../../assets/panel/wifi1.svg";

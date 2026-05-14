@@ -1,5 +1,5 @@
 import { motion } from "framer-motion";
-import { useOS } from "../../context/OSContext";
+import { useOS } from "../../core/os/OSContext";
 import { appConfigs } from "../../config/appConfig";
 import "./Taskbar.css";
 

@@ -1,5 +1,5 @@
 import React from "react";
-import { useOS } from "../../context/OSContext";
+import { useOS } from "../../core/os/OSContext";
 import { appConfigs } from "../../config/appConfig";
 import "./MobileNav.css";
 

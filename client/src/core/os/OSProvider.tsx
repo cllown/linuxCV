@@ -1,6 +1,14 @@
 import { useState, useCallback, useEffect } from "react";
 import { OSContext } from "./OSContext";
-import type { WindowState } from "./types";
+
+export type WindowState = {
+  id: string;
+  title: string;
+  isOpen: boolean;
+  isMinimized: boolean;
+  isMaximized: boolean;
+  zIndex: number;
+};
 
 export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
   children,

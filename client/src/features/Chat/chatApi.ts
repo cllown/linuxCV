@@ -1,5 +1,5 @@
 import { API_BASE_URL } from "../../config/api";
-import type { Message, ChatSession, ApiError } from "../../types/chat";
+import type { ApiError, ChatSession, Message } from "./Chat";
 
 async function request<T>(
   endpoint: string,

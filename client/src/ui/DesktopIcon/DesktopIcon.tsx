@@ -1,4 +1,4 @@
-import { useOS } from "../../context/OSContext";
+import { useOS } from "../../core/os/OSContext";
 import "./DesktopIcon.css";
 import type { DesktopIconProps } from "./types";
 

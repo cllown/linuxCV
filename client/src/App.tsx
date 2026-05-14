@@ -1,15 +1,15 @@
 import { useEffect } from "react";
 import { AnimatePresence } from "framer-motion";
-import { OSProvider } from "./context/OSProvider";
-import { useOS } from "./context/OSContext";
+import { OSProvider } from "./core/os/OSProvider";
+import { useOS } from "./core/os/OSContext";
 import { appConfigs } from "./config/appConfig";
 
-import { TopBar } from "./components/topBar/TopBar";
-import { Window } from "./components/window/Window";
-import { DesktopIcon } from "./components/DesktopIcon/DesktopIcon";
-import { Taskbar } from "./components/Taskbar/Taskbar";
+import { TopBar } from "./ui/topBar/TopBar";
+import { Window } from "./ui/Window/Window";
+import { DesktopIcon } from "./ui/DesktopIcon/DesktopIcon";
+import { Taskbar } from "./ui/Taskbar/Taskbar";
 import "./App.css";
-import Banner from "./components/banner/Banner";
+import Banner from "./ui/banner/Banner";
 
 const Desktop = () => {
   const { isAdmin, setIsAdmin, isMobile, windows } = useOS();

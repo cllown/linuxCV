@@ -6,13 +6,13 @@ import contactIcon from "../assets/contact.svg";
 import settingsIcon from "../assets/settings.svg";
 import type { AppConfig } from "./types";
 
-import AboutMe from "../pages/AboutMe/AboutMe";
-import Experience from "../pages/Experience/Experience";
-import Education from "../pages/Education/Education";
-import TechStack from "../pages/TechStack/TechStack";
-import Contact from "../pages/Contact/Contact";
-import Admin from "../pages/Admin/Admin";
-import Chat from "../pages/Chat/Chat";
+import AboutMe from "../features/AboutMe/AboutMe";
+import Experience from "../features/Experience/Experience";
+import Education from "../features/Education/Education";
+import TechStack from "../features/TechStack/TechStack";
+import Contact from "../features/Contact/Contact";
+import Admin from "../features/Admin/Admin";
+import Chat from "../features/Chat/Chat";
 import chatIcon from "../assets/chat.svg";
 
 import { createElement } from "react";
