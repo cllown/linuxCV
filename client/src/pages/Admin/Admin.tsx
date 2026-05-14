@@ -2,7 +2,6 @@ import { useState, useEffect } from "react";
 import "./Admin.css";
 import { API_BASE_URL } from "../../config/api";
 
-
 type Contact = {
   id: number;
   name: string;
@@ -27,7 +26,9 @@ const Admin = () => {
         },
       });
       const data = await response.json();
-      if (!response.ok) throw new Error(data.error);
+      if (!response.ok) {
+        throw new Error(data.error);
+      }
       setContacts(data);
     } catch (error) {
       console.error("Failed to fetch contacts:", error);

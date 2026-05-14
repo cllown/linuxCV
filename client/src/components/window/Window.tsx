@@ -15,7 +15,9 @@ export const Window: React.FC<WindowProps> = ({ id, children }) => {
   } = useOS();
 
   const windowState = windows[id];
-  if (!windowState) return null;
+  if (!windowState) {
+    return null;
+  }
   const isVisible = windowState.isOpen && !windowState.isMinimized;
   const taskbarHeight = 40;
   const isMaximized = windowState.isMaximized && !isMobile;

@@ -61,13 +61,17 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
     (id: string) => {
       setWindows((prev) => {
         const win = prev[id];
-        if (!win) return prev;
+        if (!win) {
+          return prev;
+        }
         return {
           ...prev,
           [id]: { ...win, isOpen: false },
         };
       });
-      if (activeWindowId === id) setActiveWindowId(null);
+      if (activeWindowId === id) {
+        setActiveWindowId(null);
+      }
     },
     [activeWindowId],
   );
@@ -90,7 +94,9 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
         ...prev,
         [id]: { ...prev[id], isMinimized: true },
       }));
-      if (activeWindowId === id) setActiveWindowId(null);
+      if (activeWindowId === id) {
+        setActiveWindowId(null);
+      }
     },
     [activeWindowId],
   );
@@ -98,7 +104,9 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
   const toggleMaximize = useCallback((id: string) => {
     setWindows((prev) => {
       const win = prev[id];
-      if (!win) return prev;
+      if (!win) {
+        return prev;
+      }
       return {
         ...prev,
         [id]: { ...win, isMaximized: !win.isMaximized },

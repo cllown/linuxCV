@@ -59,7 +59,9 @@ export const useChatService = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [isModelDropdownOpen, setModelDropdownOpen] = useState(false);
   const [isHistoryOpen, setHistoryOpen] = useState(false);
-  const [activeSuggestions, setActiveSuggestions] = useState<string[]>(getRandomSuggestions());
+  const [activeSuggestions, setActiveSuggestions] = useState<string[]>(
+    getRandomSuggestions(),
+  );
   const messagesEndRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
@@ -122,7 +124,9 @@ export const useChatService = () => {
 
   const sendMessage = useCallback(
     async (text: string) => {
-      if (!text.trim() || state.isLoading) return;
+      if (!text.trim() || state.isLoading) {
+        return;
+      }
 
       let sessionId = state.currentSessionId;
       if (!sessionId) {
