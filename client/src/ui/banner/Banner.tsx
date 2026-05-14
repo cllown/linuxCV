@@ -1,6 +1,6 @@
 import React from "react";
 import "./Banner.css";
-import { bannerConfig } from "../../config/bannerConfig";
+import { bannerConfig } from "@/core/config/bannerConfig";
 
 interface BannerProps {
   onClick?: () => void;

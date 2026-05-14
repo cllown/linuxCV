@@ -1,4 +1,4 @@
-import mePhoto from "../../shared/assets/images/me.png";
+import mePhoto from "@/shared/assets/images/me.png";
 import "./AboutMe.css";
 
 const AboutMe = () => (

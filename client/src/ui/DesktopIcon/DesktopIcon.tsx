@@ -1,6 +1,6 @@
-import { useOS } from "../../core/os/OSContext";
+import { useOS } from "@/core/os/OSContext";
 import "./DesktopIcon.css";
-import type { DesktopIconProps } from "../../shared/types/desktop-icon";
+import type { DesktopIconProps } from "@/shared/types/desktop-icon";
 
 export const DesktopIcon = ({ id, title, icon }: DesktopIconProps) => {
   const { openWindow } = useOS();

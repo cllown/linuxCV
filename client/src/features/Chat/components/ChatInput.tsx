@@ -1,5 +1,5 @@
 import React, { type Dispatch, type SetStateAction } from "react";
-import { AVAILABLE_MODELS, type ChatModel } from "../../../config/chatConfig";
+import { AVAILABLE_MODELS, type ChatModel } from "@/core/config/chatConfig";
 
 type Props = {
   input: string;

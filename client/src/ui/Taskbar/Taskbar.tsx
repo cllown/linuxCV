@@ -1,6 +1,6 @@
 import { motion } from "framer-motion";
-import { useOS } from "../../core/os/OSContext";
-import { appConfigs } from "../../config/appConfig";
+import { useOS } from "@/core/os/OSContext";
+import { appConfigs } from "@/config/appConfig";
 import "./Taskbar.css";
 
 export const Taskbar = () => {

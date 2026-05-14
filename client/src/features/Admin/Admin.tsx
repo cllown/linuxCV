@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import "./Admin.css";
-import { API_BASE_URL } from "../../config/api";
+import { API_BASE_URL } from "@/core/config/api";
 
 type Contact = {
   id: number;

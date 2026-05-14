@@ -1,5 +1,5 @@
-import type { BannerConfig } from "../shared/types/app";
-import { LINKS } from "./links";
+import type { BannerConfig } from "@/shared/types/app";
+import { LINKS } from "@/shared/constants/links";
 
 export const bannerConfig: BannerConfig = {
   title: "Let's Build Something",

@@ -1,5 +1,5 @@
 import React, { type RefObject } from "react";
-import type { Message } from "../chatTypes";
+import type { Message } from "@/features/Chat/chatTypes";
 
 type Props = {
   messages: Message[];

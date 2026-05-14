@@ -1,6 +1,6 @@
 import "./Experience.css";
-import factoryIcon from "../../shared/assets/icons/factory.svg";
-import calendarIcon from "../../shared/assets/icons/calendar.svg";
+import factoryIcon from "@/shared/assets/icons/factory.svg";
+import calendarIcon from "@/shared/assets/icons/calendar.svg";
 
 const experienceData = [
   {

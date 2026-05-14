@@ -1,6 +1,6 @@
 import React from "react";
-import { useOS } from "../../core/os/OSContext";
-import { appConfigs } from "../../config/appConfig";
+import { useOS } from "@/core/os/OSContext";
+import { appConfigs } from "@/config/appConfig";
 import "./MobileNav.css";
 
 export const MobileNav: React.FC = () => {

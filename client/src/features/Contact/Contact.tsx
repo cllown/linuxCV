@@ -1,11 +1,11 @@
 import { useState } from "react";
 import "./Contact.css";
-import { LINKS } from "../../config/links";
-import githubIcon from "../../shared/assets/icons/github.svg";
-import linIcon from "../../shared/assets/icons/lin.svg";
-import contactIcon from "../../shared/assets/icons/contact.svg";
+import { LINKS } from "@/shared/constants/links";
+import githubIcon from "@/shared/assets/icons/github.svg";
+import linIcon from "@/shared/assets/icons/lin.svg";
+import contactIcon from "@/shared/assets/icons/contact.svg";
 
-import { API_BASE_URL } from "../../config/api";
+import { API_BASE_URL } from "@/core/config/api";
 
 const API_URL = `${API_BASE_URL}/api`;
 

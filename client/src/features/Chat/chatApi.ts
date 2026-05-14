@@ -1,4 +1,4 @@
-import { API_BASE_URL } from "../../config/api";
+import { API_BASE_URL } from "@/core/config/api";
 import type { ApiError, ChatSession, Message } from "./Chat";
 
 async function request<T>(

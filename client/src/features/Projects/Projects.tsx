@@ -1,4 +1,4 @@
-import { LINKS } from "../../config/links";
+import { LINKS } from "@/shared/constants/links";
 import "./Projects.css";
 
 const projectsData = [
