@@ -70,7 +70,16 @@ export const Window: React.FC<WindowProps> = ({ id, children }) => {
           {/* Window Header */}
           <div className="window-header">
             <div className="window-controls">
-              {!isMobile && (
+              {isMobile ? (
+                <button
+                  onClick={(e) => {
+                    e.stopPropagation();
+                    closeWindow(id);
+                  }}
+                  className="window-control window-control--close"
+                  title="Close"
+                ></button>
+              ) : (
                 <>
                   <button
                     onClick={(e) => {
