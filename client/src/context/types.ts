@@ -6,8 +6,9 @@ export type OSContextType = {
   isMobile: boolean;
   openWindow: (id: string, title: string) => void;
   closeWindow: (id: string) => void;
-  minimizeWindow: (id: string) => void;
+  toggleMinimize: (id: string) => void;
   focusWindow: (id: string) => void;
+  toggleMaximize: (id: string) => void;
 };
 
 export type WindowState = {
@@ -15,5 +16,6 @@ export type WindowState = {
   title: string;
   isOpen: boolean;
   isMinimized: boolean;
+  isMaximized: boolean;
   zIndex: number;
 };

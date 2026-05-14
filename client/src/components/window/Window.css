@@ -40,16 +40,58 @@
   filter: brightness(1.2);
 }
 
+.window-control::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  opacity: 0;
+  transition: opacity 0.15s ease;
+  color: rgba(0, 0, 0, 0.5);
+  font-size: 10px;
+  font-weight: 700;
+  line-height: 1;
+}
+
+.window-control:hover::after {
+  opacity: 1;
+}
+
+/* Close button - X icon */
 .window-control--close {
   background-color: var(--close);
 }
+.window-control--close::after {
+  content: "✕";
+  font-size: 8px;
+}
 
+/* Minimize button - dash icon */
 .window-control--minimize {
   background-color: var(--minimize);
 }
+.window-control--minimize::after {
+  content: "−";
+  font-size: 14px;
+}
 
+/* Maximize button - square icon */
 .window-control--maximize {
   background-color: var(--maximize);
+}
+.window-control--maximize::after {
+  content: "⤢";
+  font-size: 10px;
+}
+
+/* Restore button - overlapping squares icon */
+.window-control--restore {
+  background-color: var(--maximize);
+}
+.window-control--restore::after {
+  content: "❐";
+  font-size: 10px;
 }
 
 .window-content {
@@ -61,6 +103,13 @@
   line-height: 1.6;
   color: var(--text-secondary);
   border-radius: 0 0 0.75rem 0.75rem;
+}
+
+/* ── Maximized styles ── */
+.window--maximized {
+  border-radius: 0 !important;
+  border: none !important;
+  transform: none !important;
 }
 
 /* ── Mobile styles ── */

@@ -11,6 +11,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
       title: "About Me",
       isOpen: true,
       isMinimized: false,
+      isMaximized: false,
       zIndex: 1,
     },
   });
@@ -46,6 +47,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
           title,
           isOpen: true,
           isMinimized: false,
+          isMaximized: false,
           zIndex: maxZIndex + 1,
         },
       }));
@@ -58,9 +60,12 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
   const closeWindow = useCallback(
     (id: string) => {
       setWindows((prev) => {
-        const rest = { ...prev };
-        delete rest[id];
-        return rest;
+        const win = prev[id];
+        if (!win) return prev;
+        return {
+          ...prev,
+          [id]: { ...win, isOpen: false },
+        };
       });
       if (activeWindowId === id) setActiveWindowId(null);
     },
@@ -79,7 +84,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
     [maxZIndex],
   );
 
-  const minimizeWindow = useCallback(
+  const toggleMinimize = useCallback(
     (id: string) => {
       setWindows((prev) => ({
         ...prev,
@@ -89,6 +94,17 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
     },
     [activeWindowId],
   );
+
+  const toggleMaximize = useCallback((id: string) => {
+    setWindows((prev) => {
+      const win = prev[id];
+      if (!win) return prev;
+      return {
+        ...prev,
+        [id]: { ...win, isMaximized: !win.isMaximized },
+      };
+    });
+  }, []);
 
   return (
     <OSContext.Provider
@@ -100,8 +116,9 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
         isMobile,
         openWindow,
         closeWindow,
-        minimizeWindow,
+        toggleMinimize,
         focusWindow,
+        toggleMaximize,
       }}
     >
       {children}

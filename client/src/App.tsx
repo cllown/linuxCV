@@ -1,4 +1,5 @@
 import { useEffect } from "react";
+import { AnimatePresence } from "framer-motion";
 import { OSProvider } from "./context/OSProvider";
 import { useOS } from "./context/OSContext";
 import { appConfigs } from "./config/appConfig";
@@ -6,11 +7,12 @@ import { appConfigs } from "./config/appConfig";
 import { TopBar } from "./components/topBar/TopBar";
 import { Window } from "./components/window/Window";
 import { DesktopIcon } from "./components/DesktopIcon/DesktopIcon";
+import { Taskbar } from "./components/Taskbar/Taskbar";
 import "./App.css";
 import Banner from "./components/banner/Banner";
 
 const Desktop = () => {
-  const { isAdmin, setIsAdmin, isMobile } = useOS();
+  const { isAdmin, setIsAdmin, isMobile, windows } = useOS();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -33,14 +35,18 @@ const Desktop = () => {
       <TopBar />
       <Banner />
 
-      <div className="desktop-status">
-        <span className="desktop-status-dot" />
-        Available for opportunities
-      </div>
+      {!isMobile && (
+        <>
+          <div className="desktop-status">
+            <span className="desktop-status-dot" />
+            Available for opportunities
+          </div>
+          <div className="desktop-hint">
+            💡 Click on folders to explore my workspace
+          </div>
+        </>
+      )}
 
-      <div className="desktop-hint">
-        {isMobile ? "" : "💡 Click on folders to explore my workspace"}
-      </div>
       <div className="desktop-icons">
         {visibleApps.map((config) => (
           <DesktopIcon
@@ -57,6 +63,10 @@ const Desktop = () => {
           {config.content}
         </Window>
       ))}
+
+      <AnimatePresence>
+        {!isMobile && Object.keys(windows).length > 0 && <Taskbar />}
+      </AnimatePresence>
     </div>
   );
 };
