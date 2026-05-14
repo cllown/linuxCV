@@ -1,13 +1,22 @@
-import React, { useState, useCallback } from "react";
+import { useState, useCallback, useEffect } from "react";
 import { OSContext } from "./OSContext";
 import type { WindowState } from "./types";
 
 export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
   children,
 }) => {
-  const [windows, setWindows] = useState<Record<string, WindowState>>({});
-  const [activeWindowId, setActiveWindowId] = useState<string | null>(null);
-  const [maxZIndex, setMaxZIndex] = useState(10);
+  const [windows, setWindows] = useState<Record<string, WindowState>>({
+    about: {
+      id: "about",
+      title: "About Me",
+      isOpen: true,
+      isMinimized: false,
+      zIndex: 1,
+    },
+  });
+  const [activeWindowId, setActiveWindowId] = useState<string | null>("about");
+  const [maxZIndex, setMaxZIndex] = useState(1);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isAdmin, setIsAdminState] = useState<boolean>(() => {
     const urlParams = new URLSearchParams(window.location.search);
     if (urlParams.get("admin") === "1") {
@@ -17,9 +26,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
     return localStorage.getItem("isAdmin") === "true";
   });
 
-  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
-
-  React.useEffect(() => {
+  useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
     window.addEventListener("resize", handleResize);
     return () => window.removeEventListener("resize", handleResize);

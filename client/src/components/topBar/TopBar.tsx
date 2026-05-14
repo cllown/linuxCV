@@ -6,6 +6,7 @@ import "./TopBar.css";
 import wifiIcon from "../../assets/panel/wifi1.svg";
 import soundIcon from "../../assets/panel/sound.svg";
 import batteryIcon from "../../assets/panel/battery.svg";
+import avatarIcon from "../../assets/panel/avatar.svg";
 
 export const TopBar = () => {
   const { windows, activeWindowId } = useOS();
@@ -56,7 +57,7 @@ export const TopBar = () => {
         <img src={soundIcon} alt="Sound" className="topbar__icon" />
         <img src={batteryIcon} alt="Battery" className="topbar__icon" />
         <span className="topbar__battery">100%</span>
-        <div className="topbar__avatar">A</div>
+        <img src={avatarIcon} alt="Avatar" className="topbar__avatar" />
       </div>
     </div>
   );

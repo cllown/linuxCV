@@ -55,11 +55,12 @@
 .window-content {
   flex: 1 1 0%;
   padding: 0;
-  overflow: auto;
+  overflow: hidden;
   font-family: var(--font-text);
   font-size: 0.875rem;
   line-height: 1.6;
   color: var(--text-secondary);
+  border-radius: 0 0 0.75rem 0.75rem;
 }
 
 /* ── Mobile styles ── */
@@ -75,5 +76,5 @@
 }
 
 .window--mobile .window-controls {
-  flex-direction: row-reverse; /* Put close button on the left or just keep it simple */
+  flex-direction: row-reverse;
 }

@@ -44,7 +44,7 @@ export const Window: React.FC<WindowProps> = ({ id, children }) => {
         display: "flex",
         flexDirection: "column",
       }}
-      className={`liquid-glass overflow-hidden window--${id} ${isMobile ? "window--mobile" : "rounded-lg"}`}
+      className={`liquid-glass window--${id} ${isMobile ? "window--mobile" : "rounded-lg"}`}
     >
       {/* Window Header */}
       <div className="window-header">

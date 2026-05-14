@@ -79,3 +79,34 @@
   filter: drop-shadow(0 4px 3px rgba(0, 0, 0, 0.07))
     drop-shadow(0 2px 2px rgba(0, 0, 0, 0.06));
 }
+
+/* ── Desktop Status ── */
+.desktop-status {
+  position: absolute;
+  top: 36px;
+  left: 12px;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  background: rgba(11, 17, 30, 0.7);
+  border: 1px solid rgba(34, 47, 68, 0.5);
+  border-radius: 20px;
+  color: #7588a3;
+  font-family: var(--font-text);
+  font-size: 12px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: 10;
+  pointer-events: none;
+  user-select: none;
+}
+
+.desktop-status-dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 50%;
+  background: #22cc55;
+  box-shadow: 0 0 8px rgba(34, 204, 85, 0.6);
+  flex-shrink: 0;
+}

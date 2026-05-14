@@ -1,6 +1,5 @@
 import "./Chat.css";
 import { useChatService } from "./useChatService";
-import { useOS } from "../../context/OSContext";
 import { ChatMessages } from "./components/ChatMessages";
 import { ChatInput } from "./components/ChatInput";
 
@@ -20,8 +19,6 @@ export const Chat = () => {
     activeSuggestions,
   } = useChatService();
 
-  const { isMobile } = useOS();
-
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     sendMessage(input);
@@ -29,13 +26,6 @@ export const Chat = () => {
 
   return (
     <div className="chat-container">
-      {!isMobile && (
-        <div className="chat-status-label">
-          <span className="chat-status-dot" />
-          Available for opportunities
-        </div>
-      )}
-
       <div className="chat-panel">
         <div className="chat-panel__messages">
           <ChatMessages

@@ -33,6 +33,11 @@ const Desktop = () => {
       <TopBar />
       <Banner />
 
+      <div className="desktop-status">
+        <span className="desktop-status-dot" />
+        Available for opportunities
+      </div>
+
       <div className="desktop-hint">
         {isMobile ? "" : "💡 Click on folders to explore my workspace"}
       </div>
