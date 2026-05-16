@@ -1,12 +1,13 @@
-import { Request, Response, NextFunction } from 'express';
+import { Request, Response } from 'express';
 import { ApiError } from '../types';
 
-export const errorHandler = (err: any, req: Request, res: Response, next: NextFunction) => {
-  const status = err.status || 500;
+export const errorHandler = (err: unknown, req: Request, res: Response) => {
+  const error = err instanceof Error ? err : new Error(String(err));
+  const status = (err as { status?: number }).status || 500;
 
   const apiError: ApiError = {
-    message: err.message || 'Internal Server Error',
-    code: err.code || 'INTERNAL_ERROR',
+    message: error.message || 'Internal Server Error',
+    code: (err as { code?: string }).code || 'INTERNAL_ERROR',
     details: process.env.NODE_ENV === 'development' ? err : undefined,
   };
 

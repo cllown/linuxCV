@@ -76,7 +76,9 @@ class DatabaseService {
 
     // Migration to add session_id if it was missing from an old install
     const columns = await db.all('PRAGMA table_info(chat_history)');
-    const hasSessionId = columns.some((col: any) => col.name === 'session_id');
+    const hasSessionId = columns.some(
+      (col: { name: string }) => col.name === 'session_id'
+    );
     if (!hasSessionId) {
       console.log('Migrating chat_history: adding session_id column');
       await db.exec(
