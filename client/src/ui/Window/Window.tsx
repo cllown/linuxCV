@@ -1,6 +1,7 @@
 import React from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { useOS } from "@/core/os/OSContext";
+import { WindowInfoContext } from "@/core/window/WindowInfoContext";
 import type { WindowProps } from "@/shared/types/window";
 import "./Window.css";
 
@@ -111,7 +112,11 @@ export const Window: React.FC<WindowProps> = ({ id, children }) => {
           </div>
 
           {/* Window Content */}
-          <div className="window-content custom-scrollbar">{children}</div>
+          <div className="window-content custom-scrollbar">
+            <WindowInfoContext.Provider value={{ isMaximized, windowId: id }}>
+              {children}
+            </WindowInfoContext.Provider>
+          </div>
         </motion.div>
       )}
     </AnimatePresence>

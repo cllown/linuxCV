@@ -12,7 +12,6 @@
 }
 
 .tech-stack__main-title {
-  font-family: "Space Grotesk", sans-serif;
   font-size: 24px;
   color: #f8fafc;
   margin: 0 0 4px 0;
@@ -112,7 +111,6 @@
     max-height: none;
   }
 
-
   .tech-stack__main-title {
     font-size: 20px;
   }
@@ -130,4 +128,3 @@
     padding-right: 0;
   }
 }
-

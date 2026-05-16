@@ -36,9 +36,9 @@
   );
 
   /* ── Glass ── */
-  --glass-bg: rgba(166, 81, 251, 0.06);
-  --glass-border: rgba(166, 81, 251, 0.15);
-  --glass-blur: blur(20px);
+  --glass-bg: rgba(16, 19, 23, 0.75);
+  --glass-border: rgba(120, 130, 150, 0.15);
+  --glass-blur: blur(8px);
 
   /* ── Text ── */
   --text-primary: #ffffff;
@@ -114,9 +114,7 @@ body {
   backdrop-filter: var(--glass-blur);
   -webkit-backdrop-filter: var(--glass-blur);
   border: 1px solid var(--glass-border);
-  box-shadow:
-    0 8px 32px 0 rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.3);
 }
 
 /* ── Gradient text utility ── */
