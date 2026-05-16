@@ -1,7 +1,7 @@
 // File: /home/artur/work/linuxCV/client/src/pages/Chat/suggestions.ts
 export const suggestions = [
   "What's your tech stack?",
-  "Tell me about your experience",
-  "Are you open to work?",
-  "What projects have you built?",
+  'Tell me about your experience',
+  'Are you open to work?',
+  'What projects have you built?',
 ];

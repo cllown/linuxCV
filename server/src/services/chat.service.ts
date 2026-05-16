@@ -1,7 +1,7 @@
-import { getDb } from "../db";
-import { ChatMessage, LLMProvider, ChatSession } from "../types";
-import { OpenRouterService } from "./llm/openrouter.service";
-import { v4 as uuidv4 } from "uuid";
+import { getDb } from '../db';
+import { ChatMessage, LLMProvider, ChatSession } from '../types';
+import { OpenRouterService } from './llm/openrouter.service';
+import { v4 as uuidv4 } from 'uuid';
 
 export class ChatService {
   private llmProvider: LLMProvider;
@@ -14,28 +14,29 @@ export class ChatService {
     const db = await getDb();
     const session: ChatSession = {
       id: uuidv4(),
-      title: title || "New Chat",
+      title: title || 'New Chat',
       model: model,
     };
 
-    await db.run(
-      "INSERT INTO chat_sessions (id, title, model) VALUES (?, ?, ?)",
-      [session.id, session.title, session.model],
-    );
+    await db.run('INSERT INTO chat_sessions (id, title, model) VALUES (?, ?, ?)', [
+      session.id,
+      session.title,
+      session.model,
+    ]);
 
     return session;
   }
 
   async getSessions(): Promise<ChatSession[]> {
     const db = await getDb();
-    return await db.all("SELECT * FROM chat_sessions ORDER BY created_at DESC");
+    return await db.all('SELECT * FROM chat_sessions ORDER BY created_at DESC');
   }
 
   async getHistory(sessionId: string): Promise<ChatMessage[]> {
     const db = await getDb();
     const rows = await db.all(
-      "SELECT role, content FROM chat_history WHERE session_id = ? ORDER BY created_at ASC",
-      [sessionId],
+      'SELECT role, content FROM chat_history WHERE session_id = ? ORDER BY created_at ASC',
+      [sessionId]
     );
     return rows.map((row: any) => ({
       role: row.role,
@@ -53,24 +54,23 @@ export class ChatService {
     const reply = await this.llmProvider.chat(message, history, model);
 
     // Persist user message
-    await db.run(
-      "INSERT INTO chat_history (session_id, role, content) VALUES (?, ?, ?)",
-      [sessionId, "user", message],
-    );
+    await db.run('INSERT INTO chat_history (session_id, role, content) VALUES (?, ?, ?)', [
+      sessionId,
+      'user',
+      message,
+    ]);
 
     // Persist assistant response
-    await db.run(
-      "INSERT INTO chat_history (session_id, role, content) VALUES (?, ?, ?)",
-      [sessionId, "assistant", reply],
-    );
+    await db.run('INSERT INTO chat_history (session_id, role, content) VALUES (?, ?, ?)', [
+      sessionId,
+      'assistant',
+      reply,
+    ]);
 
     // Optionally update session title if it's the first message
     if (history.length === 0) {
-      const title = message.slice(0, 30) + (message.length > 30 ? "..." : "");
-      await db.run("UPDATE chat_sessions SET title = ? WHERE id = ?", [
-        title,
-        sessionId,
-      ]);
+      const title = message.slice(0, 30) + (message.length > 30 ? '...' : '');
+      await db.run('UPDATE chat_sessions SET title = ? WHERE id = ?', [title, sessionId]);
     }
 
     return reply;

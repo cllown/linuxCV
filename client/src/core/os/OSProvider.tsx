@@ -1,5 +1,5 @@
-import { useState, useCallback, useEffect } from "react";
-import { OSContext } from "./OSContext";
+import { useState, useCallback, useEffect } from 'react';
+import { OSContext } from './OSContext';
 
 export type WindowState = {
   id: string;
@@ -10,40 +10,38 @@ export type WindowState = {
   zIndex: number;
 };
 
-export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
-  children,
-}) => {
+export const OSProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
   const [windows, setWindows] = useState<Record<string, WindowState>>({
     about: {
-      id: "about",
-      title: "About Me",
+      id: 'about',
+      title: 'About Me',
       isOpen: true,
       isMinimized: false,
       isMaximized: false,
       zIndex: 1,
     },
   });
-  const [activeWindowId, setActiveWindowId] = useState<string | null>("about");
+  const [activeWindowId, setActiveWindowId] = useState<string | null>('about');
   const [maxZIndex, setMaxZIndex] = useState(1);
   const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
   const [isAdmin, setIsAdminState] = useState<boolean>(() => {
     const urlParams = new URLSearchParams(window.location.search);
-    if (urlParams.get("admin") === "1") {
-      localStorage.setItem("isAdmin", "true");
+    if (urlParams.get('admin') === '1') {
+      localStorage.setItem('isAdmin', 'true');
       return true;
     }
-    return localStorage.getItem("isAdmin") === "true";
+    return localStorage.getItem('isAdmin') === 'true';
   });
 
   useEffect(() => {
     const handleResize = () => setIsMobile(window.innerWidth < 768);
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
   }, []);
 
   const setIsAdmin = useCallback((val: boolean) => {
     setIsAdminState(val);
-    localStorage.setItem("isAdmin", val ? "true" : "false");
+    localStorage.setItem('isAdmin', val ? 'true' : 'false');
   }, []);
 
   const openWindow = useCallback(
@@ -62,7 +60,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
       setActiveWindowId(id);
       setMaxZIndex((prev) => prev + 1);
     },
-    [maxZIndex],
+    [maxZIndex]
   );
 
   const closeWindow = useCallback(
@@ -81,7 +79,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
         setActiveWindowId(null);
       }
     },
-    [activeWindowId],
+    [activeWindowId]
   );
 
   const focusWindow = useCallback(
@@ -93,7 +91,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
       setActiveWindowId(id);
       setMaxZIndex((prev) => prev + 1);
     },
-    [maxZIndex],
+    [maxZIndex]
   );
 
   const toggleMinimize = useCallback(
@@ -106,7 +104,7 @@ export const OSProvider: React.FC<{ children: React.ReactNode }> = ({
         setActiveWindowId(null);
       }
     },
-    [activeWindowId],
+    [activeWindowId]
   );
 
   const toggleMaximize = useCallback((id: string) => {

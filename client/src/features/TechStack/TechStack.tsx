@@ -1,25 +1,25 @@
-import "./TechStack.css";
+import './TechStack.css';
 
 const categories = [
   {
-    title: "Frontend",
-    color: "#A651FB",
-    tags: ["React", "TypeScript", "Vite", "Framer Motion", "CSS"],
+    title: 'Frontend',
+    color: '#A651FB',
+    tags: ['React', 'TypeScript', 'Vite', 'Framer Motion', 'CSS'],
   },
   {
-    title: "Backend",
-    color: "#3C83F6",
-    tags: ["Node.js", "Express", "Python", "Django", "FastAPI", "PostgreSQL"],
+    title: 'Backend',
+    color: '#3C83F6',
+    tags: ['Node.js', 'Express', 'Python', 'Django', 'FastAPI', 'PostgreSQL'],
   },
   {
-    title: "Databases",
-    color: "#1FD5F9",
-    tags: ["PostgreSQL", "MongoDB", "Redis"],
+    title: 'Databases',
+    color: '#1FD5F9',
+    tags: ['PostgreSQL', 'MongoDB', 'Redis'],
   },
   {
-    title: "DevOps & Tools",
-    color: "#1FD5F9",
-    tags: ["Docker", "Git", "AWS", "CI/CD", "Linux"],
+    title: 'DevOps & Tools',
+    color: '#1FD5F9',
+    tags: ['Docker', 'Git', 'AWS', 'CI/CD', 'Linux'],
   },
 ];
 
@@ -38,10 +38,7 @@ const TechStack = () => {
         {categories.map((category, i) => (
           <div className="tech-stack-card" key={i}>
             <div className="tech-stack-card__header">
-              <div
-                className="tech-stack-card__marker"
-                style={{ background: category.color }}
-              ></div>
+              <div className="tech-stack-card__marker" style={{ background: category.color }}></div>
               <h3 className="tech-stack-card__title">{category.title}</h3>
             </div>
             <div className="tech-stack-card__tags">

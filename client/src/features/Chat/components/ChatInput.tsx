@@ -1,5 +1,5 @@
-import React, { type Dispatch, type SetStateAction } from "react";
-import { AVAILABLE_MODELS, type ChatModel } from "@/core/config/chatConfig";
+import React, { type Dispatch, type SetStateAction } from 'react';
+import { AVAILABLE_MODELS, type ChatModel } from '@/core/config/chatConfig';
 
 type Props = {
   input: string;
@@ -29,12 +29,7 @@ export const ChatInput: React.FC<Props> = ({
   <div className="chat-panel__input-container">
     <div className="chat-panel__suggestions">
       {suggestions.map((s) => (
-        <button
-          key={s}
-          type="button"
-          className="chat-panel__pill"
-          onClick={() => sendMessage(s)}
-        >
+        <button key={s} type="button" className="chat-panel__pill" onClick={() => sendMessage(s)}>
           {s}
         </button>
       ))}
@@ -58,12 +53,7 @@ export const ChatInput: React.FC<Props> = ({
             title="New Chat"
           >
             <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
-              <path
-                d="M6.5 1V12M1 6.5H12"
-                stroke="#7588A3"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+              <path d="M6.5 1V12M1 6.5H12" stroke="#7588A3" strokeWidth="2" strokeLinecap="round" />
             </svg>
           </button>
 
@@ -77,15 +67,10 @@ export const ChatInput: React.FC<Props> = ({
               viewBox="0 0 17 10"
               fill="none"
               style={{
-                transform: isModelDropdownOpen ? "rotate(180deg)" : "none",
+                transform: isModelDropdownOpen ? 'rotate(180deg)' : 'none',
               }}
             >
-              <path
-                d="M1 1L8.5 8.5L16 1"
-                stroke="#7588A3"
-                strokeWidth="2"
-                strokeLinecap="round"
-              />
+              <path d="M1 1L8.5 8.5L16 1" stroke="#7588A3" strokeWidth="2" strokeLinecap="round" />
             </svg>
             <span>{selectedModel.name}</span>
 
@@ -94,7 +79,7 @@ export const ChatInput: React.FC<Props> = ({
                 {AVAILABLE_MODELS.map((model) => (
                   <div
                     key={model.id}
-                    className={`chat-model-option ${selectedModel.id === model.id ? "active" : ""}`}
+                    className={`chat-model-option ${selectedModel.id === model.id ? 'active' : ''}`}
                     onClick={(e) => {
                       e.stopPropagation();
                       setSelectedModel(model);
@@ -103,7 +88,7 @@ export const ChatInput: React.FC<Props> = ({
                   >
                     <div className="model-name">{model.name}</div>
                     <div className="model-provider">
-                      {model.provider} {model.isFree && "(Free)"}
+                      {model.provider} {model.isFree && '(Free)'}
                     </div>
                   </div>
                 ))}
@@ -112,11 +97,7 @@ export const ChatInput: React.FC<Props> = ({
           </div>
         </div>
 
-        <button
-          type="submit"
-          className="chat-panel__send-btn"
-          disabled={!input.trim()}
-        >
+        <button type="submit" className="chat-panel__send-btn" disabled={!input.trim()}>
           <svg width="13" height="13" viewBox="0 0 13 13" fill="none">
             <path
               d="M1 6.5H12M12 6.5L6.5 1M12 6.5L6.5 12"

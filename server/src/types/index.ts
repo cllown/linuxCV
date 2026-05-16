@@ -14,7 +14,7 @@ export interface ChatSession {
 }
 
 export interface ChatMessage {
-  role: "user" | "assistant" | "system";
+  role: 'user' | 'assistant' | 'system';
   content: string;
 }
 
@@ -23,11 +23,7 @@ export interface LLMResponse {
 }
 
 export interface LLMProvider {
-  chat(
-    message: string,
-    history: ChatMessage[],
-    model?: string,
-  ): Promise<string>;
+  chat(message: string, history: ChatMessage[], model?: string): Promise<string>;
 }
 
 export interface ApiError {

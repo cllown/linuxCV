@@ -1,4 +1,4 @@
-import { createContext, useContext } from "react";
+import { createContext, useContext } from 'react';
 
 type WindowInfo = {
   isMaximized: boolean;
@@ -7,7 +7,7 @@ type WindowInfo = {
 
 export const WindowInfoContext = createContext<WindowInfo>({
   isMaximized: false,
-  windowId: "",
+  windowId: '',
 });
 
 export const useWindowInfo = () => useContext(WindowInfoContext);

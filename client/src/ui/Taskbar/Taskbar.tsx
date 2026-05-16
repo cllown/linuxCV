@@ -1,7 +1,7 @@
-import { motion } from "framer-motion";
-import { useOS } from "@/core/os/OSContext";
-import { appConfigs } from "@/config/appConfig";
-import "./Taskbar.css";
+import { motion } from 'framer-motion';
+import { useOS } from '@/core/os/OSContext';
+import { appConfigs } from '@/config/appConfig';
+import './Taskbar.css';
 
 export const Taskbar = () => {
   const { windows, activeWindowId, focusWindow, toggleMinimize } = useOS();
@@ -10,7 +10,7 @@ export const Taskbar = () => {
 
   const getIcon = (id: string) => {
     const config = appConfigs.find((c) => c.id === id);
-    return config?.icon ?? "";
+    return config?.icon ?? '';
   };
 
   const handleClick = (id: string) => {
@@ -24,16 +24,16 @@ export const Taskbar = () => {
   return (
     <motion.div
       className="taskbar"
-      initial={{ y: "100%" }}
+      initial={{ y: '100%' }}
       animate={{ y: 0 }}
-      exit={{ y: "100%" }}
+      exit={{ y: '100%' }}
       transition={{ duration: 0.25, ease: [0.25, 0.1, 0.25, 1] }}
     >
       <div className="taskbar__items">
         {openWindows.map((win) => (
           <button
             key={win.id}
-            className={`taskbar__item ${activeWindowId === win.id && !win.isMinimized ? "taskbar__item--active" : ""}`}
+            className={`taskbar__item ${activeWindowId === win.id && !win.isMinimized ? 'taskbar__item--active' : ''}`}
             onClick={() => handleClick(win.id)}
             title={win.title}
           >

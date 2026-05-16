@@ -41,7 +41,7 @@
 }
 
 .window-control::after {
-  content: "";
+  content: '';
   position: absolute;
   top: 50%;
   left: 50%;
@@ -63,7 +63,7 @@
   background-color: var(--close);
 }
 .window-control--close::after {
-  content: "✕";
+  content: '✕';
   font-size: 8px;
 }
 
@@ -72,7 +72,7 @@
   background-color: var(--minimize);
 }
 .window-control--minimize::after {
-  content: "−";
+  content: '−';
   font-size: 14px;
 }
 
@@ -81,7 +81,7 @@
   background-color: var(--maximize);
 }
 .window-control--maximize::after {
-  content: "⤢";
+  content: '⤢';
   font-size: 10px;
 }
 
@@ -90,7 +90,7 @@
   background-color: var(--maximize);
 }
 .window-control--restore::after {
-  content: "❐";
+  content: '❐';
   font-size: 10px;
 }
 

@@ -1,6 +1,6 @@
-import { useState, useEffect } from "react";
-import "./Admin.css";
-import { API_BASE_URL } from "@/core/config/api";
+import { useState, useEffect } from 'react';
+import './Admin.css';
+import { API_BASE_URL } from '@/core/config/api';
 
 type Contact = {
   id: number;
@@ -22,7 +22,7 @@ const Admin = () => {
     try {
       const response = await fetch(`${API_BASE_URL}/api/admin/contacts`, {
         headers: {
-          "x-admin-token": "secret_admin_123",
+          'x-admin-token': 'secret_admin_123',
         },
       });
       const data = await response.json();
@@ -31,7 +31,7 @@ const Admin = () => {
       }
       setContacts(data);
     } catch (error) {
-      console.error("Failed to fetch contacts:", error);
+      console.error('Failed to fetch contacts:', error);
     } finally {
       setIsLoading(false);
     }
@@ -64,9 +64,7 @@ const Admin = () => {
                 <div className="contact-message">{contact.message}</div>
               </div>
             ))}
-            {contacts.length === 0 && (
-              <div className="empty">No messages yet.</div>
-            )}
+            {contacts.length === 0 && <div className="empty">No messages yet.</div>}
           </div>
         )}
       </div>

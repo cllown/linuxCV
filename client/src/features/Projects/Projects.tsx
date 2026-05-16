@@ -1,17 +1,17 @@
-import { LINKS } from "@/shared/constants/links";
-import "./Projects.css";
+import { LINKS } from '@/shared/constants/links';
+import './Projects.css';
 
 const projectsData = [
   {
-    title: "linuxCV",
-    description: "Interactive CV styled as a Linux desktop environment.",
-    tags: ["React", "TypeScript", "Framer Motion"],
+    title: 'linuxCV',
+    description: 'Interactive CV styled as a Linux desktop environment.',
+    tags: ['React', 'TypeScript', 'Framer Motion'],
     link: LINKS.projectRepo,
   },
   {
-    title: "Project Two",
-    description: "Description of another cool project.",
-    tags: ["Node.js", "Express", "MongoDB"],
+    title: 'Project Two',
+    description: 'Description of another cool project.',
+    tags: ['Node.js', 'Express', 'MongoDB'],
   },
 ];
 

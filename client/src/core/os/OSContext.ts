@@ -1,5 +1,5 @@
-import { createContext, useContext } from "react";
-import type { WindowState } from "./OSProvider";
+import { createContext, useContext } from 'react';
+import type { WindowState } from './OSProvider';
 
 export type OSContextType = {
   windows: Record<string, WindowState>;
@@ -19,7 +19,7 @@ export const OSContext = createContext<OSContextType | undefined>(undefined);
 export const useOS = () => {
   const context = useContext(OSContext);
   if (!context) {
-    throw new Error("useOS must be used within OSProvider");
+    throw new Error('useOS must be used within OSProvider');
   }
   return context;
 };

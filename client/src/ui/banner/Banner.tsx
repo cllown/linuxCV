@@ -1,6 +1,6 @@
-import React from "react";
-import "./Banner.css";
-import { bannerConfig } from "@/core/config/bannerConfig";
+import React from 'react';
+import './Banner.css';
+import { bannerConfig } from '@/core/config/bannerConfig';
 
 interface BannerProps {
   onClick?: () => void;
@@ -21,8 +21,7 @@ export const Banner: React.FC<BannerProps> = ({ onClick, link }) => {
     <div className="banner liquid-glass">
       <div className="banner__content">
         <h2 className="banner__title">
-          {bannerConfig.title}{" "}
-          <span className="gradient-text">{bannerConfig.subtitle}</span>
+          {bannerConfig.title} <span className="gradient-text">{bannerConfig.subtitle}</span>
         </h2>
         <p className="banner__text">{bannerConfig.text}</p>
         <a

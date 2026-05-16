@@ -1,12 +1,12 @@
 /* ── Window Styles for Chat ── */
 .window--chat {
   width: 400px !important;
-  height: 80hv !important;
+  height: 80vh !important;
 }
 
 .window--chat.window--maximized {
   width: 100vw !important;
-  height: calc(100vh - 68px) !important;
+  height: 100vh !important;
   max-width: none !important;
 }
 
@@ -71,7 +71,7 @@
   border: 1px solid #222f44;
   border-radius: 20px;
   color: #7588a3;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 12px;
   pointer-events: auto;
   margin-bottom: 10px;
@@ -138,14 +138,14 @@
 }
 
 .chat-panel__empty-title {
-  font-family: "Space Grotesk", sans-serif;
+  font-family: 'Space Grotesk', sans-serif;
   font-size: 24px;
   font-weight: 600;
   color: #ffffff;
 }
 
 .chat-panel__empty-sub {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #7588a3;
   max-width: 250px;
@@ -183,7 +183,7 @@
 
 /* ── Message Bubbles ── */
 .chat-msg {
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   line-height: 1.6;
   padding: 10px 16px;
@@ -302,7 +302,9 @@
   border: 1px solid #222f44;
   backdrop-filter: blur(12px);
   border-radius: 16px;
-  transition: border-color 0.2s ease, box-shadow 0.2s ease;
+  transition:
+    border-color 0.2s ease,
+    box-shadow 0.2s ease;
 }
 
 .chat-panel__input-wrapper:focus-within {
@@ -316,7 +318,7 @@
   background: transparent;
   border: none;
   outline: none;
-  font-family: "Inter", sans-serif;
+  font-family: 'Inter', sans-serif;
   font-size: 14px;
   color: #ffffff;
 }
@@ -348,7 +350,9 @@
   border: none;
   cursor: pointer;
   opacity: 0.5;
-  transition: opacity 0.2s ease, transform 0.15s ease;
+  transition:
+    opacity 0.2s ease,
+    transform 0.15s ease;
 }
 
 .chat-panel__action-icon:hover {
@@ -392,7 +396,9 @@
   border-radius: 50%;
   border: none;
   cursor: pointer;
-  transition: background 0.2s ease, transform 0.15s ease;
+  transition:
+    background 0.2s ease,
+    transform 0.15s ease;
 }
 
 .chat-panel__send-btn:hover {
@@ -445,7 +451,7 @@
 }
 
 .chat-model-option:not(:last-child)::after {
-  content: "";
+  content: '';
   position: absolute;
   bottom: 0;
   left: 8px;

@@ -1,8 +1,8 @@
-import "./Chat.css";
-import { useChatService } from "./useChatService";
-import { ChatMessages } from "./components/ChatMessages";
-import { ChatInput } from "./components/ChatInput";
-export type { Message, ChatSession } from "./chatTypes";
+import './Chat.css';
+import { useChatService } from './useChatService';
+import { ChatMessages } from './components/ChatMessages';
+import { ChatInput } from './components/ChatInput';
+export type { Message, ChatSession } from './chatTypes';
 
 export type ApiError = {
   message: string;
@@ -35,11 +35,7 @@ export const Chat = () => {
     <div className="chat-container">
       <div className="chat-panel">
         <div className="chat-panel__messages">
-          <ChatMessages
-            messages={messages}
-            isLoading={isLoading}
-            messagesEndRef={messagesEndRef}
-          />
+          <ChatMessages messages={messages} isLoading={isLoading} messagesEndRef={messagesEndRef} />
         </div>
         <ChatInput
           input={input}

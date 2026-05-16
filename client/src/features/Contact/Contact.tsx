@@ -1,38 +1,38 @@
-import { useState } from "react";
-import "./Contact.css";
-import { LINKS } from "@/shared/constants/links";
-import githubIcon from "@/shared/assets/icons/github.svg";
-import linIcon from "@/shared/assets/icons/lin.svg";
-import contactIcon from "@/shared/assets/icons/contact.svg";
+import { useState } from 'react';
+import './Contact.css';
+import { LINKS } from '@/shared/constants/links';
+import githubIcon from '@/shared/assets/icons/github.svg';
+import linIcon from '@/shared/assets/icons/lin.svg';
+import contactIcon from '@/shared/assets/icons/contact.svg';
 
-import { API_BASE_URL } from "@/core/config/api";
+import { API_BASE_URL } from '@/core/config/api';
 
 const API_URL = `${API_BASE_URL}/api`;
 
 const Contact = () => {
-  const [formData, setFormData] = useState({ name: "", email: "", message: "" });
-  const [status, setStatus] = useState<"idle" | "sending" | "success" | "error">("idle");
+  const [formData, setFormData] = useState({ name: '', email: '', message: '' });
+  const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-    setStatus("sending");
+    setStatus('sending');
 
     try {
       const response = await fetch(`${API_URL}/contact`, {
-        method: "POST",
-        headers: { "Content-Type": "application/json" },
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(formData),
       });
 
       if (response.ok) {
-        setStatus("success");
-        setFormData({ name: "", email: "", message: "" });
+        setStatus('success');
+        setFormData({ name: '', email: '', message: '' });
       } else {
-        setStatus("error");
+        setStatus('error');
       }
     } catch (error) {
-      console.error("Form submission error:", error);
-      setStatus("error");
+      console.error('Form submission error:', error);
+      setStatus('error');
     }
   };
 
@@ -103,15 +103,11 @@ const Contact = () => {
             onChange={(e) => setFormData({ ...formData, message: e.target.value })}
           ></textarea>
         </div>
-        <button type="submit" className="contact__submit" disabled={status === "sending"}>
-          {status === "sending" ? "Sending..." : "Send Message"}
+        <button type="submit" className="contact__submit" disabled={status === 'sending'}>
+          {status === 'sending' ? 'Sending...' : 'Send Message'}
         </button>
-        {status === "success" && (
-          <p className="contact__success">Message sent successfully!</p>
-        )}
-        {status === "error" && (
-          <p className="contact__error">Failed to send message. Try again.</p>
-        )}
+        {status === 'success' && <p className="contact__success">Message sent successfully!</p>}
+        {status === 'error' && <p className="contact__error">Failed to send message. Try again.</p>}
       </form>
     </div>
   );

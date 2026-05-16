@@ -1,12 +1,12 @@
-import { useState, useEffect } from "react";
-import { motion, AnimatePresence } from "framer-motion";
-import { useOS } from "@/core/os/OSContext";
-import "./TopBar.css";
+import { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import { useOS } from '@/core/os/OSContext';
+import './TopBar.css';
 
-import wifiIcon from "@/shared/assets/panels/wifi1.svg";
-import soundIcon from "@/shared/assets/panels/sound.svg";
-import batteryIcon from "@/shared/assets/panels/battery.svg";
-import avatarIcon from "@/shared/assets/panels/avatar.svg";
+import wifiIcon from '@/shared/assets/panels/wifi1.svg';
+import soundIcon from '@/shared/assets/panels/sound.svg';
+import batteryIcon from '@/shared/assets/panels/battery.svg';
+import avatarIcon from '@/shared/assets/panels/avatar.svg';
 
 export const TopBar = () => {
   const { windows, activeWindowId } = useOS();
@@ -20,15 +20,15 @@ export const TopBar = () => {
   const activeTitle =
     activeWindowId && windows[activeWindowId]?.isOpen
       ? windows[activeWindowId].title
-      : "Activities";
+      : 'Activities';
 
-  const hhmm = time.toLocaleTimeString("en-US", {
-    hour: "2-digit",
-    minute: "2-digit",
+  const hhmm = time.toLocaleTimeString('en-US', {
+    hour: '2-digit',
+    minute: '2-digit',
     hour12: false,
   });
-  const dayName = time.toLocaleDateString("en-US", { weekday: "short" });
-  const monthName = time.toLocaleDateString("en-US", { month: "long" });
+  const dayName = time.toLocaleDateString('en-US', { weekday: 'short' });
+  const monthName = time.toLocaleDateString('en-US', { month: 'long' });
   const dayNum = time.getDate();
 
   return (
@@ -42,7 +42,7 @@ export const TopBar = () => {
             initial={{ y: -12, opacity: 0 }}
             animate={{ y: 0, opacity: 1 }}
             exit={{ y: 12, opacity: 0 }}
-            transition={{ duration: 0.2, ease: "easeInOut" }}
+            transition={{ duration: 0.2, ease: 'easeInOut' }}
           >
             {activeTitle}
           </motion.span>

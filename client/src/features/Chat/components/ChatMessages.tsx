@@ -1,6 +1,6 @@
-import React, { type RefObject } from "react";
-import type { Message } from "@/features/Chat/chatTypes";
-import aiIcon from "@/shared/assets/icons/chat.svg";
+import React, { type RefObject } from 'react';
+import type { Message } from '@/features/Chat/chatTypes';
+import aiIcon from '@/shared/assets/icons/chat.svg';
 
 type Props = {
   messages: Message[];
@@ -8,11 +8,7 @@ type Props = {
   messagesEndRef: RefObject<HTMLDivElement | null>;
 };
 
-export const ChatMessages: React.FC<Props> = ({
-  messages,
-  isLoading,
-  messagesEndRef,
-}) => (
+export const ChatMessages: React.FC<Props> = ({ messages, isLoading, messagesEndRef }) => (
   <>
     {messages.length === 0 && (
       <div className="chat-panel__empty">
@@ -24,7 +20,7 @@ export const ChatMessages: React.FC<Props> = ({
     )}
     {messages.map((msg, i) => (
       <div key={i} className={`chat-msg-row chat-msg-row--${msg.role}`}>
-        {msg.role === "assistant" && (
+        {msg.role === 'assistant' && (
           <div className="chat-msg__avatar">
             <img src={aiIcon} alt="AI" />
           </div>

@@ -1,6 +1,6 @@
-import app from "./app";
-import { config } from "./config/env";
-import { getDb } from "./db";
+import app from './app';
+import { config } from './config/env';
+import { getDb } from './db';
 
 async function bootstrap() {
   try {
@@ -12,7 +12,7 @@ async function bootstrap() {
       console.log(`Environment: ${config.env}`);
     });
   } catch (error) {
-    console.error("❌ Failed to start server:", error);
+    console.error('❌ Failed to start server:', error);
     process.exit(1);
   }
 }

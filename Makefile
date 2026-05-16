@@ -11,8 +11,10 @@ help:
 	@echo "  make dev          - Run client and server in development mode"
 	@echo "  make server       - Run only server"
 	@echo "  make build        - Build client for production"
-	@echo "  make deploy       - Deploy client to GitHub Pages"
-	@echo "  make lint         - Run linter"
+	@echo "  make deploy       - Deploy client to GitHub Pages (runs lint first)"
+	@echo "  make lint         - Run linter for client and server"
+	@echo "  make format       - Run formatter for client and server"
+	@echo "  make format-check - Check formatting for client and server"
 	@echo "  make clean        - Remove build artifacts and node_modules"
 	@echo "  make docker-up    - Start docker containers (future)"
 	@echo "  make docker-down  - Stop docker containers (future)"
@@ -47,13 +49,31 @@ build:
 
 # Deployment
 .PHONY: deploy
-deploy:
+deploy: lint
 	cd $(CLIENT_DIR) && npm run deploy
 
 # Linting
 .PHONY: lint
 lint:
+	@echo "Running lint for client..."
 	cd $(CLIENT_DIR) && npm run lint
+	@echo "Running lint for server..."
+	cd $(SERVER_DIR) && npm run lint
+
+# Formatting
+.PHONY: format
+format:
+	@echo "Running format for client..."
+	cd $(CLIENT_DIR) && npm run format
+	@echo "Running format for server..."
+	cd $(SERVER_DIR) && npm run format
+
+.PHONY: format-check
+format-check:
+	@echo "Checking format for client..."
+	cd $(CLIENT_DIR) && npm run format:check
+	@echo "Checking format for server..."
+	cd $(SERVER_DIR) && npm run format:check
 
 # Cleanup
 .PHONY: clean
